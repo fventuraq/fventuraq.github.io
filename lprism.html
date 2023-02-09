@@ -119,11 +119,23 @@
         <div class="section-title">
           <h2>Resumo do L-PRISM</h2>
           <p>L-PRISM é uma linguagem composta por diferentes tipos de dados, capacidades, artefatos, relacionamentos e por fim os nós, que fazem parte da cadeia de serviços multimídia. Nesta secção apresentamos os principais elementos de uma cadeia de serviços multimédia, caso pretenda rever as especificações detalhadas <a href="#" title="Detalhes do L-PRISM">'L-PRISM - Detalhes'</a>.</p>
+
         </div>
 
         <div class="row">
           <div class="col-lg-6" data-aos="fade-up">
+            <p><em>Para criar uma cadeias de serviços multimídia com L-PRISM, você deve criar um arquivo YAML(.yml) e colocar o seguinte como variáveis ​​de cabeçalho.</em></p>
+            <div class="col-lg-12">
+            <button id="copy-button-cabecera" class="copy-button">Copiar código</button>
+<pre class="code-block col-lg-12" id="l-prism-cabecera">
+---
+<span class="key">chainModel:</span>
+<span class="key">  chainName:</span><span class="string"> Example 1 chain sample</span><span class="coment"> #Name of chain</span>
+<span class="key">  chainDescription:</span><span class="string"> Description of my chain</span><span class="coment"> #Description of chain</span>
+</pre>
+            </div>
             <h3 class="resume-title">'devices' - Virtual Devices</h3>
+            <p><em>O <b>'device'</b> são os dispositivos físicos virtualizados, uma das principais características dos dispositivos virtualizados (<b>device</b>) é que eles podem fazer parte de diferentes cadeias de serviços multimídia, é por isso que, para consumir o fluxo multimídia que eles produzem, os sensores virtuais multimídia (VMS) precisam se inscrever em dispositivos virtualizados para que eles repliquem seu fluxo e o enviem para um novo assinante.</em></p>
             <div class="resume-item">
               <h4 style="text-transform: none;">'deviceName'</h4>
               <p><em>DeviceName é o nome do dispositivo virtualizado dentro da cadeia de serviços multimídia, este nome não deve ser repetido na cadeia de serviços multimídia que está sendo criada, por sua vez, este nome será utilizado para comunicação do dispositivo virtualizado com os sensores virtuais multimídia (VMS).</em></p>
@@ -135,7 +147,8 @@
 
             <div class="resume-item pb-0">
               <h4 style="text-transform: none;">'deviceId'</h4>
-              <p><em>Uma das principais características dos dispositivos virtualizados (<b>device</b>) é que eles podem fazer parte de diferentes cadeias de serviços multimídia, é por isso que, para consumir o fluxo multimídia que eles produzem, os sensores virtuais multimídia (VMS) precisam se inscrever em dispositivos virtualizados para que eles repliquem seu fluxo e o enviem para um novo assinante.</em></p>
+              <p><em></em></p>
+              <p><em><b>'deviceId'</b> é o identificador do 'tópico' onde o dispositivo físico virtualizado está trabalhando, este identificador é usado para que os elementos da cadeia de serviços multimídia (VMSs) possam se inscrever no fluxo multimídia oferecido pelos dispositivos físicos virtualizados, isto é feito através deste identificador.</em></p>
               <p><em>Para que um sensor virtual multimídia possa se inscrever, ele deve possuir o identificador do dispositivo virtualizado (<b>device</b>). Na arquitetura alfa, esse identificador é o 'id' do registro no banco de dados.</em></p>
               <ul>
                 <li><b>type:</b> lPrism.artifacts.vms.swImage</li>
@@ -145,8 +158,14 @@
 
             <div class="resume-item ">
               <h4>Exemplo de implementação (YAML)</h4>
-              <button id="copy-button-device">Copiar código</button>
-              <img src="assets/img/lprism/device_example.png" class="img-fluid" alt="">              
+              <button id="copy-button-device" class="copy-button">Copiar código</button>
+<pre class="code-block col-lg-12" id="l-prism-device">
+  <span class="key">devices:</span>
+  -
+    <span class="key">  deviceName:</span><span class="string"> example1 video ball</span><span class="coment"> #Name of device in chain</span>
+    <span class="key">  deviceId:</span><span class="string"> 638e70b10a1fbd0026fccaf4</span><span class="coment"> #id of device (subcribe topic)</span>
+</pre>
+              <!--<img src="assets/img/lprism/device_example.png" class="img-fluid" alt="">              -->
             </div>
 
             <h3 class="resume-title">'vmss' - Virtual Multimedia Sensors (VMS)</h3>
@@ -199,18 +218,22 @@
               </ul>
             </div>
 
-            <div class="resume-item pb-0">
-              <h4 style="text-transform: none;">'virtualCPU'</h4>
-              <p><em><b>virtualCPU</b> é o número de CPUs atribuído ao VMS, o correto funcionamento dos aplicativos multimídia virtualizados depende desta variável, se você não definir um valor para esta variável, a maioria das ferramentas de virtualização atribui uma quantidade limitada de CPUs ao VMS por padrão.</em></p>
-              <ul>
-                <li><b>type:</b> lPrism.datatype.vms.VirtualCpu</li>
-                <li><b>required:</b> false</li>
-              </ul>
-            </div>
             <div class="resume-item ">
               <h4>Exemplo de implementação (YAML)</h4>
-              <button id="copy-button-vms">Copiar código</button>
-              <img src="assets/img/lprism/vms_example.png" class="img-fluid" alt="">              
+              <button id="copy-button-vms" class="copy-button">Copiar código</button>
+<pre class="code-block col-lg-12" id="l-prism-vms">
+  <span class="key">vmss:</span>
+  -
+    <span class="key">  vmsName:</span><span class="string"> vms1 example 1</span><span class="coment"> #Name of VMS in chain</span>
+    <span class="key">  vmsType:</span><span class="string"> 638e70b10a1fbd0026fccae4</span><span class="coment"> #image docker_id</span>
+    <span class="key">  nodeIp:</span><span class="numberr"> 192.168.0.117</span><span class="coment"> #IP node deploy VMS </span>
+    <span class="key">  startupParameters:</span><span class="string"> </span><span class="coment"> #optional parameter</span>
+    <span class="key">  virtualMemory:</span>
+      <span class="key">  size:</span><span class="string"> 1024</span><span class="coment"> #optional (default docker configure))</span>
+    <span class="key">  virtualCPU:</span>
+      <span class="key">  numCpu:</span><span class="string"> 1</span><span class="coment"> #optional (default docker configure)</span>
+</pre>
+              <!--<img src="assets/img/lprism/vms_example.png" class="img-fluid" alt="">              -->
             </div>            
           </div>
 
@@ -325,12 +348,38 @@
             
             <div class="resume-item ">
               <h4>Exemplo de implementação (YAML)</h4>
-              <button id="copy-button-links">Copiar código</button>
-              <img src="assets/img/lprism/virtualLink_example.png" class="img-fluid" alt="">              
+              <button id="copy-button-links" class="copy-button">Copiar código</button>
+<pre class="code-block col-lg-12" id="l-prism-links">
+  <span class="key">virtualLinks:</span>
+  -
+    <span class="key">  origin:</span>
+      <span class="key">  originName:</span><span class="string"> example1 video ball</span><span class="coment"> #Name of origin connect</span>
+      <span class="key">  originType:</span><span class="string"> device</span><span class="coment"> #Type of origin </span>
+      <span class="key">  PortDestine:</span><span class="numberr"> 5000</span><span class="coment"> #optional </span>
+      <span class="key">  outputType:</span><span class="string"> video</span><span class="coment"> # output media stream type (vide, audi, text) </span>
+      <span class="key">  formatType:</span><span class="coment"> #optional format tipe of midia stream</span>
+    <span class="key">  destine:</span>
+      <span class="key">  destineName:</span><span class="string"> vms1 example 1</span><span class="coment"> # Destination name</span>
+      <span class="key">  destineIp:</span><span class="coment"> # Configure for orchestater </span>
+      <span class="key">  destinePort:</span><span class="numberr"> 5000</span><span class="coment"> #information of VMS</span>
+      <span class="key">  inputType:</span><span class="string"> video</span><span class="coment"> # input media stream type </span>
+  -
+    <span class="key">  origin:</span>
+      <span class="key">  originName:</span><span class="string"> vms1 example 1</span><span class="coment"> #Name of origin connect</span>
+      <span class="key">  originType:</span><span class="string"> vms</span><span class="coment"> #Type of origin </span>
+      <span class="key">  PortDestine:</span><span class="numberr"> 20002</span><span class="coment"> #optional </span>
+      <span class="key">  outputType:</span><span class="string"> video</span><span class="coment"> # output media stream type (vide, audi, text) </span>
+      <span class="key">  formatType:</span><span class="coment"> #optional format tipe of midia stream</span>
+    <span class="key">  destine:</span>
+      <span class="key">  destineName:</span><span class="numberr"> 192.168.0.103</span><span class="coment"> # Destination name</span>
+      <span class="key">  destineIp:</span><span class="numberr"> 192.168.0.103</span><span span class="coment"> #IP of the final destination where the multimedia stream will be published</span>
+      <span class="key">  destinePort:</span><span class="numberr"> 20002</span><span class="coment"> #Developer Information </span>
+      <span class="key">  inputType:</span><span class="string"> video</span><span class="coment"> # input media stream type </span>    
+</pre>
+             <!-- <img src="assets/img/lprism/virtualLink_example.png" class="img-fluid" alt="">              -->
             </div>             
           </div>
         </div>
-
       </div>
     </section>
     
@@ -359,7 +408,7 @@
             <div class="portfolio-wrap">
               <img src="assets/img/lprism/example-sample1.png" class="img-fluid" alt="">
               <div class="portfolio-links">
-                <a href="assets/img/chains/tarefa_1.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Sample chain"><i class="bx bx-plus"></i></a>
+                <a href="assets/img/lprism/example-sample1-complete.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Sample chain"><i class="bx bx-plus"></i></a>
                 <a href="taks1-details.html" title="Detalhes"><i class="bx bx-link"></i></a>
               </div>
             </div>
@@ -484,55 +533,51 @@
   <script src="assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script> 
+  <script src="assets/js/main.js"></script>   
 
   <script>
-    const copyButton = document.querySelector("#copy-button-device");
-    const textToCopy = "devices: \n-\n\tdeviceName:\n\tdeviceId:";
+    const copyButton4 = document.querySelector("#copy-button-cabecera");
+    const codeBlock4 = document.querySelector("#l-prism-cabecera");
 
-    copyButton.addEventListener("click", () => {
-      navigator.clipboard.writeText(textToCopy).then(
-        function() {
-          console.log("Text copied to clipboard");
-        },
-        function(err) {
-          console.error("Could not copy text: ", err);
-        }
-      );
+    copyButton4.addEventListener("click", () => {
+      navigator.clipboard.writeText(codeBlock4.textContent).then(() => {
+        console.log("Contenido copiado a la portapapeles.");
+      });
     });
   </script>
 
-  <script>
-    const copyButton2 = document.querySelector("#copy-button-vms");
-    const textToCopy2 = "vmss: \n-\n\tvmsName:\n\tvmsType: \t#docker_id\n\tnodeIp: \t # IP node deploy VMS \n\tstartupParameters: \t #optional parameter\n\tvirtualMemory:\n\t\tsize: \t#optional (default docker configure)\n\tvirtualCPU:\n\t\tnumCpu: \t#optional (default docker configure)";
+<script>
+  const copyButton = document.querySelector("#copy-button-device");
+  const codeBlock = document.querySelector("#l-prism-device");
 
-    copyButton2.addEventListener("click", () => {
-      navigator.clipboard.writeText(textToCopy2).then(
-        function() {
-          console.log("Text copied to clipboard");
-        },
-        function(err) {
-          console.error("Could not copy text: ", err);
-        }
-      );
+  copyButton.addEventListener("click", () => {
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+      console.log("Contenido copiado a la portapapeles.");
     });
-  </script>
+  });
+</script>
 
-  <script>
-    const copyButton3 = document.querySelector("#copy-button-links");
-    const textToCopy3 = "virtualLinks: \n-\n\torigin:\n\t\toriginName: \t #Name of origin connect\n\t\toriginType: \n\t\tPortDestine: \t #optional \n\t\toutputType: \t# output media stream type \n\t\tformatType: \t #optional format tipe of midia stream\n\tdestine: \n\t\tdestineName: \t # Destination name \n\t\tdestineIp: \t# Configure for orchestater \n\t\tdestinePort: \t #information of VMS \n\t\tinputType: \t # input media stream type";
+<script>
+  const copyButton2 = document.querySelector("#copy-button-vms");
+  const codeBlock2 = document.querySelector("#l-prism-vms");
 
-    copyButton3.addEventListener("click", () => {
-      navigator.clipboard.writeText(textToCopy3).then(
-        function() {
-          console.log("Text copied to clipboard");
-        },
-        function(err) {
-          console.error("Could not copy text: ", err);
-        }
-      );
+  copyButton2.addEventListener("click", () => {
+    navigator.clipboard.writeText(codeBlock2.textContent).then(() => {
+      console.log("Contenido copiado a la portapapeles.");
     });
-  </script>
+  });
+</script>
+
+<script>
+  const copyButton3 = document.querySelector("#copy-button-links");
+  const codeBlock3 = document.querySelector("#l-prism-links");
+
+  copyButton3.addEventListener("click", () => {
+    navigator.clipboard.writeText(codeBlock3.textContent).then(() => {
+      console.log("Contenido copiado a la portapapeles.");
+    });
+  });
+</script>
 
 </body>
 
