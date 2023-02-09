@@ -113,72 +113,217 @@
     </section><!-- End About Section -->
 
     
-    <section id="resume" class="resume">
+    <section id="resume" class="resume section-bg">
       <div class="container">
 
         <div class="section-title">
           <h2>Resumo do L-PRISM</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <p>L-PRISM é uma linguagem composta por diferentes tipos de dados, capacidades, artefatos, relacionamentos e por fim os nós, que fazem parte da cadeia de serviços multimídia. Nesta secção apresentamos os principais elementos de uma cadeia de serviços multimédia, caso pretenda rever as especificações detalhadas <a href="#" title="Detalhes do L-PRISM">'L-PRISM - Detalhes'</a>.</p>
         </div>
 
         <div class="row">
           <div class="col-lg-6" data-aos="fade-up">
-            <h3 class="resume-title">Virtual Devices</h3>
-            <div class="resume-item pb-0">
-              <h4>Alex Smith</h4>
-              <p><em>Innovative and deadline-driven Graphic Designer with 3+ years of experience designing and developing user-centered digital/print marketing material from initial concept to final, polished deliverable.</em></p>
+            <h3 class="resume-title">'devices' - Virtual Devices</h3>
+            <div class="resume-item">
+              <h4 style="text-transform: none;">'deviceName'</h4>
+              <p><em>DeviceName é o nome do dispositivo virtualizado dentro da cadeia de serviços multimídia, este nome não deve ser repetido na cadeia de serviços multimídia que está sendo criada, por sua vez, este nome será utilizado para comunicação do dispositivo virtualizado com os sensores virtuais multimídia (VMS).</em></p>
               <ul>
-                <li>Portland par 127,Orlando, FL</li>
-                <li>(123) 456-7891</li>
-                <li>alice.barkley@example.com</li>
+                <li><b>type:</b> string</li>
+                <li><b>required:</b> true</li>
               </ul>
             </div>
 
-            <h3 class="resume-title">Virtual Multimedia Sensors - VMS</h3>
+            <div class="resume-item pb-0">
+              <h4 style="text-transform: none;">'deviceId'</h4>
+              <p><em>Uma das principais características dos dispositivos virtualizados (<b>device</b>) é que eles podem fazer parte de diferentes cadeias de serviços multimídia, é por isso que, para consumir o fluxo multimídia que eles produzem, os sensores virtuais multimídia (VMS) precisam se inscrever em dispositivos virtualizados para que eles repliquem seu fluxo e o enviem para um novo assinante.</em></p>
+              <p><em>Para que um sensor virtual multimídia possa se inscrever, ele deve possuir o identificador do dispositivo virtualizado (<b>device</b>). Na arquitetura alfa, esse identificador é o 'id' do registro no banco de dados.</em></p>
+              <ul>
+                <li><b>type:</b> lPrism.artifacts.vms.swImage</li>
+                <li><b>required:</b> true</li>
+              </ul>
+            </div>
+
+            <div class="resume-item ">
+              <h4>Exemplo de implementação (YAML)</h4>
+              <img src="assets/img/lprism/device_example.png" class="img-fluid" alt="">              
+            </div>
+
+            <h3 class="resume-title">'vmss' - Virtual Multimedia Sensors (VMS)</h3>
             <div class="resume-item">
-              <h4>Master of Fine Arts &amp; Graphic Design</h4>
-              <h5>2015 - 2016</h5>
-              <p><em>Rochester Institute of Technology, Rochester, NY</em></p>
-              <p>Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit. Ea vero voluptatum qui ut dignissimos deleniti nerada porti sand markend</p>
+              <h4 style="text-transform: none;">'vmsName'</h4>
+              <p><em>Nome do VMS dentro da cadeia de serviços multimídia, este nome serve como guia para as conexões que existirão entre VMS-VMS ou dispositivo-VMS.</em></p>
+              <ul>
+                <li><b>type:</b> string</li>
+                <li><b>required:</b> true</li>
+              </ul>
             </div>
             <div class="resume-item">
-              <h4>Bachelor of Fine Arts &amp; Graphic Design</h4>
-              <h5>2010 - 2014</h5>
-              <p><em>Rochester Institute of Technology, Rochester, NY</em></p>
-              <p>Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis Eius vel ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae consequatur neque etlon sader mart dila</p>
+              <h4 style="text-transform: none;">'vmsType'</h4>
+              <p><em><b>vmsType</b> é uma variável que identifica qual VMS será utilizado, esta variável está diretamente relacionada com as imagens do Docker (arquitetura alfa) disponíveis para implantação.</em></p>
+              <ul>
+                <li><b>type:</b> lPrism.artifacts.vms.swImage</li>
+                <li><b>required:</b> true</li>
+              </ul>
             </div>
+            <div class="resume-item">
+              <h4 style="text-transform: none;">'nodeIp'</h4>
+              <p><em><b>nodeIp</b> é uma variável que define em qual endereço IP o VMS será implantado. Em um ambiente distribuído, diferentes VMS podem ser criados e estes podem ser distribuídos em diferentes nós dentro da rede.</em></p>
+              <ul>
+                <li><b>type:</b> lPrism.datatype.vms.AddressData</li>
+                <li><b>required:</b> true</li>
+              </ul>
+            </div>
+            <div class="resume-item">
+              <h4 style="text-transform: none;">'startupParameters'</h4>
+              <p><em><b>startupParameters</b> é uma variável que permite colocar variáveis ​​adicionais que o VMS permite, isso vai depender da configuração do desenvolvedor que criou originalmente o VMS.</em></p>
+              <ul>
+                <li><b>type:</b> lPrism.datatype.vms.configurableProperties</li>
+                <li><b>required:</b> false</li>
+              </ul>
+            </div>
+            <div class="resume-item">
+              <h4 style="text-transform: none;">'virtualMemory'</h4>
+              <p><em><b>virtualMemory</b> é a quantidade de memória RAM atribuída ao VMS. O funcionamento correto dos aplicativos multimídia virtualizados depende desta variável. Se esta variável não for definida com um valor, a maioria das ferramentas de virtualização atribui uma quantidade de memória ao VMS por padrão.</em></p>
+              <ul>
+                <li><b>type:</b> lPrism.datatype.vms.VirtualMemory</li>
+                <li><b>required:</b> true</li>
+              </ul>
+            </div>
+            <div class="resume-item pb-0">
+              <h4 style="text-transform: none;">'virtualCPU'</h4>
+              <p><em><b>virtualCPU</b> é o número de CPUs atribuído ao VMS, o correto funcionamento dos aplicativos multimídia virtualizados depende desta variável, se você não definir um valor para esta variável, a maioria das ferramentas de virtualização atribui uma quantidade limitada de CPUs ao VMS por padrão.</em></p>
+              <ul>
+                <li><b>type:</b> lPrism.datatype.vms.VirtualCpu</li>
+                <li><b>required:</b> true</li>
+              </ul>
+            </div>
+
+            <div class="resume-item ">
+              <h4>Exemplo de implementação (YAML)</h4>
+              <img src="assets/img/lprism/vms_example.png" class="img-fluid" alt="">              
+            </div>            
           </div>
+
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="resume-title">Virtual Links</h3>
+            <h3 class="resume-title">'virtualLinks' - Virtual Links</h3>
+            <p><em>VirtualLinks são as conexões existentes entre os diferentes dispositivos dentro de uma cadeia de serviços multimídia, podendo ser desde um dispositivo-VMS, VMS-VMS e VMS até um destino final. A características de um VirtualLinks são as seguintes.</em></p>
             <div class="resume-item">
-              <h4>Senior graphic design specialist</h4>
-              <h5>2019 - Present</h5>
-              <p><em>Experion, New York, NY </em></p>
+              <h4 style="text-transform: none;">'origin'</h4>
+              <p><em>Agrupa as características de onde a conexão vai começar.</em></p>
               <ul>
-                <li>Lead in the design, development, and implementation of the graphic, layout, and production communication materials</li>
-                <li>Delegate tasks to the 7 members of the design team and provide counsel on all aspects of the project. </li>
-                <li>Supervise the assessment of all graphic materials in order to ensure quality and accuracy of the design</li>
-                <li>Oversee the efficient use of production project budgets ranging from $2,000 - $25,000</li>
+                <li>
+                  <h4 style="text-transform: none;">'originName'</h4>
+                  <p><em><b>originName</b> é o nome do elemento da cadeia de serviços multimídia onde a conexão será iniciada.</em></p>
+                  <ul>
+                    <li><b>type:</b> string</li>
+                    <li><b>required:</b> true</li>                    
+                  </ul>
+                </li>
+                <li>
+                  <h4 style="text-transform: none;">'originType'</h4>
+                  <p><em><b>originType</b> é o tipo de elemento (device/vms) da cadeia de serviços multimídia onde a conexão será iniciada.</em></p>
+                  <ul>
+                    <li><b>type:</b> string</li>
+                    <li><b>required:</b> true</li>
+                    <li><b>constraints:</b>
+                      <ul>
+                        <li><b>valid_values:</b> [device, vms]</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <h4 style="text-transform: none;">'PortDestine'</h4>
+                  <p><em><b>PortDestine</b> é a porta de destino, esta variável não é necessária para preencher, mas serve como guia para cadeias de serviços multimídia complexas.</em></p>
+                  <ul>
+                    <li><b>type:</b> integer </li>
+                    <li><b>required:</b> false</li>
+                  </ul>
+                </li>
+                <li>
+                  <h4 style="text-transform: none;">'outputType'</h4>
+                  <p><em><b>outputType</b> é o tipo de dado que será enviado ao destino, esta variável é utilizada para verificar se o tipo de fluxo multimídia enviado corresponde ao tipo aceito pelo destino</em></p>
+                  <ul>
+                    <li><b>type:</b> string</li>
+                    <li><b>required:</b> true</li>
+                    <li><b>constraints:</b>
+                      <ul>
+                        <li><b>valid_values:</b> [video, audio, text]</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <h4 style="text-transform: none;">'formatType'</h4>
+                  <p><em><b>formatType</b> é o formato dos dados que serão enviados ao destino, esta variável é utilizada para verificar se o formato do fluxo multimídia enviado corresponde ao formato aceito pelo destino.</em></p>
+                  <ul>
+                    <li><b>type:</b> string</li>
+                    <li><b>required:</b> false</li>
+                    <li><b>constraints:</b>
+                      <ul>
+                        <li><b>valid_values:</b> [avi, mp3, mp4 ....]</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
               </ul>
             </div>
-            <div class="resume-item">
-              <h4>Graphic design specialist</h4>
-              <h5>2017 - 2018</h5>
-              <p><em>Stepping Stone Advertising, New York, NY</em></p>
+            <div class="resume-item pb-0">
+              <h4 style="text-transform: none;">'destine'</h4>
+              <p><em><b>destine</b> agrupa as características de onde a conexão vai terminar.</em></p>
               <ul>
-                <li>Developed numerous marketing programs (logos, brochures,infographics, presentations, and advertisements).</li>
-                <li>Managed up to 5 projects or tasks at a given time while under pressure</li>
-                <li>Recommended and consulted with clients on the most appropriate graphic design</li>
-                <li>Created 4+ design presentations and proposals a month for clients and account managers</li>
+                <li>                  
+                  <h4 style="text-transform: none;">'destineName'</h4>
+                  <p><em><b>destineName</b> é o nome do elemento da cadeia de serviços multimédia para onde será enviado o stream multimédia.</em></p>
+                  <ul>
+                    <li><b>type:</b> string</li>
+                    <li><b>required:</b> true</li>
+                  </ul>                  
+                </li>
+                <li>
+                  <h4 style="text-transform: none;">'destineIp'</h4>
+                  <p><em><b>destinationIp</b> é o endereço IP para onde o stream multimídia será enviado, esta informação é essencial caso você queira gerenciar manualmente a alocação de endereços IP em um ambiente virtualizado.</em></p>
+                  <p><em>Na arquitetura <b>alfa</b>, esta variável é atribuída pelo orquestrador, portanto não é necessário preenchê-la, a menos que seja o destino final da cadeia de serviços multimídia, neste caso o endereço de destino seria um endereço IP de um computador dentro dá rede.</em></p>
+                  <ul>
+                    <li><b>type:</b> lPrism.datatype.vms.AddressData</li>
+                    <li><b>required:</b> false</li>
+                  </ul>                  
+                </li>
+                <li>
+                  <h4 style="text-transform: none;">'destinePort'</h4>
+                  <p><em><b>destinePorts</b> é a porta de destino da conexão, esta informação pode vir por padrão dos desenvolvedores da aplicação (na maioria dos casos), ou os desenvolvedores podem deixar para configurar esta variável na inicialização do VMS (startupParameters).</em></p>
+                  <ul>
+                    <li><b>type:</b> integer</li>
+                    <li><b>required:</b> true</li>
+                  </ul>
+                </li>
+                <li>
+                  <h4 style="text-transform: none;">'inputType'</h4>
+                  <p><em><b>inputType</b> é o tipo de dado que o destino recebe.Esta variável é usada para verificar se o tipo de stream multimídia recebido corresponde ao aceito pelo VMS.</em></p>
+                  <ul>
+                    <li><b>type:</b> string</li>
+                    <li><b>required:</b> true</li>
+                    <li><b>constraints:</b>
+                      <ul>
+                        <li><b>valid_values:</b> [video, audio, text]</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
               </ul>
             </div>
+            
+            <div class="resume-item ">
+              <h4>Exemplo de implementação (YAML)</h4>
+              <img src="assets/img/lprism/virtualLink_example.png" class="img-fluid" alt="">              
+            </div>             
           </div>
         </div>
 
       </div>
     </section>
     
-    <section id="exemplos-lprism" class="portfolio section-bg">
+    <section id="exemplos-lprism" class="portfolio">
       <div class="container">
 
         <div class="section-title">
@@ -201,7 +346,7 @@
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-simple">
             <div class="portfolio-wrap">
-              <img src="assets/img/chains/tarefa_1.png" class="img-fluid" alt="">
+              <img src="assets/img/lprism/example-sample1.png" class="img-fluid" alt="">
               <div class="portfolio-links">
                 <a href="assets/img/chains/tarefa_1.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Sample chain"><i class="bx bx-plus"></i></a>
                 <a href="taks1-details.html" title="Detalhes"><i class="bx bx-link"></i></a>
@@ -211,7 +356,7 @@
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-2vms">
             <div class="portfolio-wrap">
-              <img src="assets/img/chains/tarefa_2.png" class="img-fluid" alt="">
+              <img src="assets/img/lprism/example-2vms-1.png" class="img-fluid" alt="">
               <div class="portfolio-links">
                 <a href="assets/img/chains/tarefa_2.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Chain 2 VMS"><i class="bx bx-plus"></i></a>
                 <a href="taks2-details.html" title="Detalhes"><i class="bx bx-link"></i></a>
@@ -221,7 +366,7 @@
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-complexa">
             <div class="portfolio-wrap">
-              <img src="assets/img/chains/tarefa_3.png" class="img-fluid" alt="">
+              <img src="assets/img/lprism/example-complex-1.png" class="img-fluid" alt="">
               <div class="portfolio-links">
                 <a href="assets/img/chains/tarefa_3.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Complexe chain"><i class="bx bx-plus"></i></a>
                 <a href="taks3-details.html" title="Detalhes"><i class="bx bx-link"></i></a>
@@ -231,7 +376,7 @@
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-complexa">
             <div class="portfolio-wrap">
-              <img src="assets/img/chains/tarefa_4.png" class="img-fluid" alt="">
+              <img src="assets/img/lprism/example-complex-2.png" class="img-fluid" alt="">
               <div class="portfolio-links">
                 <a href="assets/img/chains/tarefa_4.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Complexe chain 2"><i class="bx bx-plus"></i></a>
                 <a href="taks4-details.html" title="Detalhes"><i class="bx bx-link"></i></a>
@@ -243,7 +388,7 @@
     </section>
 
     <!-- ======= Services Section ======= -->
-    <section id="exemplos-vprism" class="services">
+    <section id="exemplos-vprism" class="services section-bg">
       <div class="container">
 
         <div class="section-title">
