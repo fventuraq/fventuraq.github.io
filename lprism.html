@@ -145,6 +145,7 @@
 
             <div class="resume-item ">
               <h4>Exemplo de implementação (YAML)</h4>
+              <button id="copy-button-device">Copiar código</button>
               <img src="assets/img/lprism/device_example.png" class="img-fluid" alt="">              
             </div>
 
@@ -186,7 +187,7 @@
               <p><em><b>virtualMemory</b> é a quantidade de memória RAM atribuída ao VMS. O funcionamento correto dos aplicativos multimídia virtualizados depende desta variável. Se esta variável não for definida com um valor, a maioria das ferramentas de virtualização atribui uma quantidade de memória ao VMS por padrão.</em></p>
               <ul>
                 <li><b>type:</b> lPrism.datatype.vms.VirtualMemory</li>
-                <li><b>required:</b> true</li>
+                <li><b>required:</b> false</li>
               </ul>
             </div>
             <div class="resume-item pb-0">
@@ -194,12 +195,21 @@
               <p><em><b>virtualCPU</b> é o número de CPUs atribuído ao VMS, o correto funcionamento dos aplicativos multimídia virtualizados depende desta variável, se você não definir um valor para esta variável, a maioria das ferramentas de virtualização atribui uma quantidade limitada de CPUs ao VMS por padrão.</em></p>
               <ul>
                 <li><b>type:</b> lPrism.datatype.vms.VirtualCpu</li>
-                <li><b>required:</b> true</li>
+                <li><b>required:</b> false</li>
               </ul>
             </div>
 
+            <div class="resume-item pb-0">
+              <h4 style="text-transform: none;">'virtualCPU'</h4>
+              <p><em><b>virtualCPU</b> é o número de CPUs atribuído ao VMS, o correto funcionamento dos aplicativos multimídia virtualizados depende desta variável, se você não definir um valor para esta variável, a maioria das ferramentas de virtualização atribui uma quantidade limitada de CPUs ao VMS por padrão.</em></p>
+              <ul>
+                <li><b>type:</b> lPrism.datatype.vms.VirtualCpu</li>
+                <li><b>required:</b> false</li>
+              </ul>
+            </div>
             <div class="resume-item ">
               <h4>Exemplo de implementação (YAML)</h4>
+              <button id="copy-button-vms">Copiar código</button>
               <img src="assets/img/lprism/vms_example.png" class="img-fluid" alt="">              
             </div>            
           </div>
@@ -315,6 +325,7 @@
             
             <div class="resume-item ">
               <h4>Exemplo de implementação (YAML)</h4>
+              <button id="copy-button-links">Copiar código</button>
               <img src="assets/img/lprism/virtualLink_example.png" class="img-fluid" alt="">              
             </div>             
           </div>
@@ -441,162 +452,6 @@
       </div>
 
     </section>
-
-<!--
-    <section id="testimonials" class="testimonials section-bg">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Testimonials</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-        </div>
-
-        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-          <div class="swiper-wrapper">
-
-            <div class="swiper-slide">
-              <div class="testimonial-item" data-aos="fade-up">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                <h3>Saul Goodman</h3>
-                <h4>Ceo &amp; Founder</h4>
-              </div>
-            </div>
-
-            <div class="swiper-slide">
-              <div class="testimonial-item" data-aos="fade-up" data-aos-delay="100">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                <h3>Sara Wilsson</h3>
-                <h4>Designer</h4>
-              </div>
-            </div>
-
-            <div class="swiper-slide">
-              <div class="testimonial-item" data-aos="fade-up" data-aos-delay="200">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                <h3>Jena Karlis</h3>
-                <h4>Store Owner</h4>
-              </div>
-            </div>
-
-            <div class="swiper-slide">
-              <div class="testimonial-item" data-aos="fade-up" data-aos-delay="300">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                <h3>Matt Brandon</h3>
-                <h4>Freelancer</h4>
-              </div>
-            </div>
-
-            <div class="swiper-slide">
-              <div class="testimonial-item" data-aos="fade-up" data-aos-delay="400">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                <h3>John Larson</h3>
-                <h4>Entrepreneur</h4>
-              </div>
-            </div>
-
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-      </div>
-    </section>
-
-    <section id="contact" class="contact">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Contact</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-        </div>
-
-        <div class="row" data-aos="fade-in">
-
-          <div class="col-lg-5 d-flex align-items-stretch">
-            <div class="info">
-              <div class="address">
-                <i class="bi bi-geo-alt"></i>
-                <h4>Location:</h4>
-                <p>A108 Adam Street, New York, NY 535022</p>
-              </div>
-
-              <div class="email">
-                <i class="bi bi-envelope"></i>
-                <h4>Email:</h4>
-                <p>info@example.com</p>
-              </div>
-
-              <div class="phone">
-                <i class="bi bi-phone"></i>
-                <h4>Call:</h4>
-                <p>+1 5589 55488 55s</p>
-              </div>
-
-              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
-            </div>
-
-          </div>
-
-          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="row">
-                <div class="form-group col-md-6">
-                  <label for="name">Your Name</label>
-                  <input type="text" name="name" class="form-control" id="name" required>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="name">Your Email</label>
-                  <input type="email" class="form-control" name="email" id="email" required>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="name">Subject</label>
-                <input type="text" class="form-control" name="subject" id="subject" required>
-              </div>
-              <div class="form-group">
-                <label for="name">Message</label>
-                <textarea class="form-control" name="message" rows="10" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
--->
-
   </main>
 
   <!-- ======= Footer ======= -->
@@ -629,7 +484,55 @@
   <script src="assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js"></script> 
+
+  <script>
+    const copyButton = document.querySelector("#copy-button-device");
+    const textToCopy = "devices: \n-\n\tdeviceName:\n\tdeviceId:";
+
+    copyButton.addEventListener("click", () => {
+      navigator.clipboard.writeText(textToCopy).then(
+        function() {
+          console.log("Text copied to clipboard");
+        },
+        function(err) {
+          console.error("Could not copy text: ", err);
+        }
+      );
+    });
+  </script>
+
+  <script>
+    const copyButton2 = document.querySelector("#copy-button-vms");
+    const textToCopy2 = "vmss: \n-\n\tvmsName:\n\tvmsType: \t#docker_id\n\tnodeIp: \t # IP node deploy VMS \n\tstartupParameters: \t #optional parameter\n\tvirtualMemory:\n\t\tsize: \t#optional (default docker configure)\n\tvirtualCPU:\n\t\tnumCpu: \t#optional (default docker configure)";
+
+    copyButton2.addEventListener("click", () => {
+      navigator.clipboard.writeText(textToCopy2).then(
+        function() {
+          console.log("Text copied to clipboard");
+        },
+        function(err) {
+          console.error("Could not copy text: ", err);
+        }
+      );
+    });
+  </script>
+
+  <script>
+    const copyButton3 = document.querySelector("#copy-button-links");
+    const textToCopy3 = "virtualLinks: \n-\n\torigin:\n\t\toriginName: \t #Name of origin connect\n\t\toriginType: \n\t\tPortDestine: \t #optional \n\t\toutputType: \t# output media stream type \n\t\tformatType: \t #optional format tipe of midia stream\n\tdestine: \n\t\tdestineName: \t # Destination name \n\t\tdestineIp: \t# Configure for orchestater \n\t\tdestinePort: \t #information of VMS \n\t\tinputType: \t # input media stream type";
+
+    copyButton3.addEventListener("click", () => {
+      navigator.clipboard.writeText(textToCopy3).then(
+        function() {
+          console.log("Text copied to clipboard");
+        },
+        function(err) {
+          console.error("Could not copy text: ", err);
+        }
+      );
+    });
+  </script>
 
 </body>
 
