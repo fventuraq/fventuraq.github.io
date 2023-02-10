@@ -1030,7 +1030,6 @@ section {
 }
 
 .copy-button {
-  float: right;
   margin-top: 16px;
   padding: 8px 16px;
   background-color: #115bc3;
@@ -1056,6 +1055,7 @@ section {
   color: #fff;
   padding: 16px;
   font-family: "Courier New", Courier, monospace;
+  font-size: 16px;
 }
 
 .key {
@@ -1069,6 +1069,15 @@ section {
 }
 .coment {
   color: #616c76;
+}
+
+.pagination {
+  text-align: center;
+}
+.pagination a {
+  display: inline-block;  
+  height: 35px;
+  margin-left: 5px;
 }
 
 @-webkit-keyframes animate-loading {

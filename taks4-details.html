@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>L-PRISM - Taks 1</title>
+  <title>L-PRISM - Example 4</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -72,10 +72,10 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Portfoio Details</h2>
+          <h2>Teste 2</h2>
           <ol>
-            <li><a href="index.html">Home</a></li>
-            <li>Portfoio Details</li>
+            <li><a href="lprism.html">Home</a></li>
+            <li>Teste 2</li>
           </ol>
         </div>
 
@@ -89,46 +89,161 @@
         <div class="row gy-4">
 
           <div class="col-lg-8">
-            <div class="portfolio-details-slider swiper">
-              <div class="swiper-wrapper align-items-center">
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/portfolio-details-1.jpg" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/portfolio-details-2.jpg" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/portfolio-details-3.jpg" alt="">
-                </div>
-
-              </div>
-              <div class="swiper-pagination"></div>
+            <div class="section-title">
+              <h2>Cadeia de serviços multimídia complexa - reutilização de código</h2>
+              <p>Esta seção mostra como reutilizar código de cadeias de serviços multimídia já criadas, é um exemplo prático de reutilização de código. Neste caso, está modificando a cadeia de serviços multimídia mostrada no <a href="taks3-details.html">exemplo 3.</a> </p>              
             </div>
+            <button id="copy-button-example3" class="copy-button">Copiar código</button>
+<pre class="code-block col-lg-12" id="l-prism-example3">
+---
+<span class="key">chainModel:</span>
+  <span class="key">chainName:</span><span class="string"> Example complex Chain 2</span><span class="coment"> #Name of chain</span>
+  <span class="key">chainDescription:</span><span class="string"> Description complex Chain 2</span><span class="coment"> #Description of chain</span>
+
+  <span class="key">devices:</span>
+  -
+    <span class="key">deviceName:</span><span class="string"> example1 video ball</span><span class="coment"> #Name of device in chain</span>
+    <span class="key">deviceId:</span><span class="string"> 638e70b10a1fbd0026fccaf4</span><span class="coment"> #id of device (subcribe topic)</span>
+  -
+    <span class="key">deviceName:</span><span class="string"> complex1 color bar</span><span class="coment"> #Name of device in chain</span>
+    <span class="key">deviceId:</span><span class="string"> 638e70b10a1fbd0026fccaf6</span><span class="coment"> #id of device (subcribe topic)</span>
+
+  <span class="key">vmss:</span>
+  - <span class="coment">#vms 1</span>
+    <span class="key">vmsName:</span><span class="string"> vms1 complex1</span><span class="coment"> #Name of VMS in chain</span>
+    <span class="key">vmsType:</span><span class="string"> 638e70b10a1fbd0026fccae8</span><span class="coment"> #image docker_id</span>
+    <span class="key">nodeIp:</span><span class="numberr"> 192.168.0.117</span><span class="coment"> #IP node deploy VMS </span>
+    <span class="key">startupParameters:</span><span class="string"> </span><span class="coment"> #optional parameter</span>
+    <span class="key">virtualMemory:</span>
+      <span class="key">size:</span><span class="string"> 1024</span><span class="coment"> #optional (default docker configure))</span>
+    <span class="key">virtualCPU:</span>
+      <span class="key">numCpu:</span><span class="string"> 1</span><span class="coment"> #optional (default docker configure)</span>
+  - <span class="coment">#vms 2</span>
+    <span class="key">vmsName:</span><span class="string"> vms2 complex1</span><span class="coment"> #Name of VMS in chain</span>
+    <span class="key">vmsType:</span><span class="string"> 638e70b10a1fbd0026fccae8</span><span class="coment"> #image docker_id</span>
+    <span class="key">nodeIp:</span><span class="numberr"> 192.168.0.117</span><span class="coment"> #IP node deploy VMS </span>
+    <span class="key">startupParameters:</span><span class="string"> </span><span class="coment"> #optional parameter</span>
+    <span class="key">virtualMemory:</span>
+      <span class="key">size:</span><span class="string"> 1024</span><span class="coment"> #optional (default docker configure))</span>
+    <span class="key">virtualCPU:</span>
+      <span class="key">numCpu:</span><span class="string"> 1</span><span class="coment"> #optional (default docker configure)</span>
+  - <span class="coment">#vms 3</span>
+    <span class="key">vmsName:</span><span class="string"> vms3 complex1</span><span class="coment"> #Name of VMS in chain</span>
+    <span class="key">vmsType:</span><span class="string"> 638e70b10a1fbd0026fccae4</span><span class="coment"> #image docker_id</span>
+    <span class="key">nodeIp:</span><span class="numberr"> 192.168.0.117</span><span class="coment"> #IP node deploy VMS </span>
+    <span class="key">startupParameters:</span><span class="string"> </span><span class="coment"> #optional parameter</span>
+    <span class="key">virtualMemory:</span>
+      <span class="key">size:</span><span class="string"> 1024</span><span class="coment"> #optional (default docker configure))</span>
+    <span class="key">virtualCPU:</span>
+      <span class="key">numCpu:</span><span class="string"> 1</span><span class="coment"> #optional (default docker configure)</span>
+
+  <span class="key">virtualLinks:</span>
+  - <span class="coment">#virtualLink 1</span>
+    <span class="key">  origin:</span>
+      <span class="key">  originName:</span><span class="string"> complex1 video ball</span><span class="coment"> #Name of origin connect</span>
+      <span class="key">  originType:</span><span class="string"> device</span><span class="coment"> #Type of origin </span>
+      <span class="key">  PortDestine:</span><span class="numberr"> 15000</span><span class="coment"> #optional </span>
+      <span class="key">  outputType:</span><span class="string"> video</span><span class="coment"> # output media stream type (vide, audi, text) </span>
+      <span class="key">  formatType:</span><span class="coment"> #optional format tipe of midia stream</span>
+    <span class="key">  destine:</span>
+      <span class="key">  destineName:</span><span class="string"> vms2 complex1</span><span class="coment"> # Destination name</span>
+      <span class="key">  destineIp:</span><span class="coment"> # Configure for orchestater </span>
+      <span class="key">  destinePort:</span><span class="numberr"> 15000</span><span class="coment"> #information of VMS</span>
+      <span class="key">  inputType:</span><span class="string"> video</span><span class="coment"> # input media stream type </span>
+  - <span class="coment">#virtualLink 2</span>
+    <span class="key">  origin:</span>
+      <span class="key">  originName:</span><span class="string"> complex1 video ball</span><span class="coment"> #Name of origin connect</span>
+      <span class="key">  originType:</span><span class="string"> device</span><span class="coment"> #Type of origin </span>
+      <span class="key">  PortDestine:</span><span class="numberr"> 5000</span><span class="coment"> #optional </span>
+      <span class="key">  outputType:</span><span class="string"> video</span><span class="coment"> # output media stream type (vide, audi, text) </span>
+      <span class="key">  formatType:</span><span class="coment"> #optional format tipe of midia stream</span>
+    <span class="key">  destine:</span>
+      <span class="key">  destineName:</span><span class="string"> vms3 complex1</span><span class="coment"> # Destination name</span>
+      <span class="key">  destineIp:</span><span class="coment"> # Configure for orchestater </span>
+      <span class="key">  destinePort:</span><span class="numberr"> 5000</span><span class="coment"> #information of VMS</span>
+      <span class="key">  inputType:</span><span class="string"> video</span><span class="coment"> # input media stream type </span>
+  - <span class="coment">#virtualLink 3</span>
+    <span class="key">  origin:</span>
+      <span class="key">  originName:</span><span class="string"> vms3 complex1</span><span class="coment"> #Name of origin connect</span>
+      <span class="key">  originType:</span><span class="string"> vms</span><span class="coment"> #Type of origin </span>
+      <span class="key">  PortDestine:</span><span class="numberr"> 15001</span><span class="coment"> #optional </span>
+      <span class="key">  outputType:</span><span class="string"> video</span><span class="coment"> # output media stream type (vide, audi, text) </span>
+      <span class="key">  formatType:</span><span class="coment"> #optional format tipe of midia stream</span>
+    <span class="key">  destine:</span>
+      <span class="key">  destineName:</span><span class="string"> vms2 complex1</span><span class="coment"> # Destination name</span>
+      <span class="key">  destineIp:</span><span class="coment"> # Configure for orchestater </span>
+      <span class="key">  destinePort:</span><span class="numberr"> 15001</span><span class="coment"> #information of VMS</span>
+      <span class="key">  inputType:</span><span class="string"> video</span><span class="coment"> # input media stream type </span>
+  - <span class="coment">#virtualLink 4</span>
+    <span class="key">  origin:</span>
+      <span class="key">  originName:</span><span class="string"> complex1 color bar</span><span class="coment"> #Name of origin connect</span>
+      <span class="key">  originType:</span><span class="string"> device</span><span class="coment"> #Type of origin </span>
+      <span class="key">  PortDestine:</span><span class="numberr"> 15001</span><span class="coment"> #optional </span>
+      <span class="key">  outputType:</span><span class="string"> video</span><span class="coment"> # output media stream type (vide, audi, text) </span>
+      <span class="key">  formatType:</span><span class="coment"> #optional format tipe of midia stream</span>
+    <span class="key">  destine:</span>
+      <span class="key">  destineName:</span><span class="string"> vms1 complex1</span><span class="coment"> # Destination name</span>
+      <span class="key">  destineIp:</span><span class="coment"> # Configure for orchestater </span>
+      <span class="key">  destinePort:</span><span class="numberr"> 15001</span><span class="coment"> #information of VMS</span>
+      <span class="key">  inputType:</span><span class="string"> video</span><span class="coment"> # input media stream type </span>
+  - <span class="coment">#virtualLink 5</span>
+    <span class="key">  origin:</span>
+      <span class="key">  originName:</span><span class="string"> vms2 complex1</span><span class="coment"> #Name of origin connect</span>
+      <span class="key">  originType:</span><span class="string"> vms</span><span class="coment"> #Type of origin </span>
+      <span class="key">  PortDestine:</span><span class="numberr"> 15000</span><span class="coment"> #optional </span>
+      <span class="key">  outputType:</span><span class="string"> video</span><span class="coment"> # output media stream type (vide, audi, text) </span>
+      <span class="key">  formatType:</span><span class="coment"> #optional format tipe of midia stream</span>
+    <span class="key">  destine:</span>
+      <span class="key">  destineName:</span><span class="string"> vms1 complex1</span><span class="coment"> # Destination name</span>
+      <span class="key">  destineIp:</span><span class="coment"> # Configure for orchestater </span>
+      <span class="key">  destinePort:</span><span class="numberr"> 15000</span><span class="coment"> #information of VMS</span>
+      <span class="key">  inputType:</span><span class="string"> video</span><span class="coment"> # input media stream type </span>
+  - <span class="coment">#virtualLink 6</span>
+    <span class="key">  origin:</span>
+      <span class="key">  originName:</span><span class="string"> vms1 complex1</span><span class="coment"> #Name of origin connect</span>
+      <span class="key">  originType:</span><span class="string"> vms</span><span class="coment"> #Type of origin </span>
+      <span class="key">  PortDestine:</span><span class="numberr"> 20005</span><span class="coment"> #optional </span>
+      <span class="key">  outputType:</span><span class="string"> video</span><span class="coment"> # output media stream type (vide, audi, text) </span>
+      <span class="key">  formatType:</span><span class="coment"> #optional format tipe of midia stream</span>
+    <span class="key">  destine:</span>
+      <span class="key">  destineName:</span><span class="numberr"> 192.168.0.103</span><span class="coment"> # Destination name</span>
+      <span class="key">  destineIp:</span><span class="numberr"> 192.168.0.103</span><span span class="coment"> #IP of the final destination where the multimedia stream will be published</span>
+      <span class="key">  destinePort:</span><span class="numberr"> 20004</span><span class="coment"> #Developer Information </span>
+      <span class="key">  inputType:</span><span class="string"> video</span><span class="coment"> # input media stream type </span>    
+</pre>
+            
           </div>
 
           <div class="col-lg-4">
-            <div class="portfolio-info">
-              <h3>Project information</h3>
-              <ul>
-                <li><strong>Category</strong>: Web design</li>
-                <li><strong>Client</strong>: ASU Company</li>
-                <li><strong>Project date</strong>: 01 March, 2020</li>
-                <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
-              </ul>
-            </div>
             <div class="portfolio-description">
-              <h2>This is an example of portfolio detail</h2>
-              <p>
-                Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
-              </p>
+              <h2>Imagem de referência</h2>
+              <img src="assets/img/lprism/example-complex-1.png" class="img-fluid" alt="">
             </div>
-          </div>
 
+            <div class="portfolio-description">
+              <h2>Vídeo do processo de criação</h2>
+              <iframe width="100%" height="300" src="https://www.youtube.com/embed/Og04SlfTs6A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>  
+            
+            <div class="portfolio-description">
+              <h2>Comando para exibir o resultado</h2>
+              <button id="copy-button-example3-comand" class="copy-button">Copiar código</button>
+<pre class="code-block col-lg-12" id="l-prism-example3-comand">
+gst-launch-1.0 udpsrc port=20004 caps= "application/x-rtp, media=(string)video, clock-rate=(int) 90000, encoding-name=(string)H264, payload=(int)96"  ! rtph264depay ! decodebin ! videoconvert ! autovideosink
+</pre>
+            </div> 
+
+            <div class="portfolio-description">
+              <h2>Resultado</h2>              
+              <img src="assets/img/lprism/example-complex-1-result.png" class="img-fluid" alt="">
+            </div>
+          </div> 
+          <div class="d-flex justify-content-around flex-wrap">
+            <a class="btn btn-primary" href="taks1-details.html" role="button">Exemplo 1 L-PRISM</a>
+            <a class="btn btn-primary" href="taks2-details.html" role="button">Exemplo 2 L-PRISM</a>
+            <a class="btn btn-primary" href="taks3-details.html" role="button">Exemplo 3 L-PRISM</a>
+          </div>         
         </div>
-
       </div>
     </section><!-- End Portfolio Details Section -->
 
@@ -165,6 +280,28 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <script>
+    const copyButtonE4 = document.querySelector("#copy-button-example4");
+    const codeBlockE4 = document.querySelector("#l-prism-example4");
+  
+    copyButtonE4.addEventListener("click", () => {
+      navigator.clipboard.writeText(codeBlockE4.textContent).then(() => {
+        console.log("Contenido copiado a la portapapeles.");
+      });
+    });
+  </script>
+
+  <script>
+    const copyButtonE4C = document.querySelector("#copy-button-example4-comand");
+    const codeBlockE4C = document.querySelector("#l-prism-example4-comand");
+
+    copyButtonE4C.addEventListener("click", () => {
+      navigator.clipboard.writeText(codeBlockE4C.textContent).then(() => {
+        console.log("Contenido copiado a la portapapeles.");
+      });
+    });
+  </script>
 
 </body>
 
