@@ -112,68 +112,68 @@
     <span class="key">nodeIp:</span><span class="numberr"> 192.168.0.117</span><span class="coment"> #IP node deploy VMS </span>
     <span class="key">startupParameters:</span><span class="string"> </span><span class="coment"> #optional parameter</span>
     <span class="key">virtualMemory:</span>
-      <span class="key">size:</span><span class="number"> 1024</span><span class="coment"> #optional (default docker configure))</span>
+      <span class="key">size:</span><span class="numberr"> 1024</span><span class="coment"> #optional (default docker configure))</span>
     <span class="key">virtualCPU:</span>
-      <span class="key">numCpu:</span><span class="number"> 1</span><span class="coment"> #optional (default docker configure)</span>
+      <span class="key">numCpu:</span><span class="numberr"> 1</span><span class="coment"> #optional (default docker configure)</span>
   -
     <span class="key">vmsName:</span><span class="string"> vms2 2vms 1</span><span class="coment"> #Name of VMS in chain</span>
     <span class="key">vmsType:</span><span class="string"> 638e70b10a1fbd0026fccae4</span><span class="coment"> #image docker_id</span>
     <span class="key">nodeIp:</span><span class="numberr"> 192.168.0.117</span><span class="coment"> #IP node deploy VMS </span>
     <span class="key">startupParameters:</span><span class="string"> </span><span class="coment"> #optional parameter</span>
     <span class="key">virtualMemory:</span>
-      <span class="key">size:</span><span class="number"> 1024</span><span class="coment"> #optional (default docker configure))</span>
+      <span class="key">size:</span><span class="numberr"> 1024</span><span class="coment"> #optional (default docker configure))</span>
     <span class="key">virtualCPU:</span>
-      <span class="key">numCpu:</span><span class="number"> 1</span><span class="coment"> #optional (default docker configure)</span>
+      <span class="key">numCpu:</span><span class="numberr"> 1</span><span class="coment"> #optional (default docker configure)</span>
 
   <span class="key">virtualLinks:</span>
-  -   #virtualLink 1
-    <span class="key">  origin:</span>
-      <span class="key">  originName:</span><span class="string"> 2vms video ball</span><span class="coment"> #Name of origin connect</span>
-      <span class="key">  originType:</span><span class="string"> device</span><span class="coment"> #Type of origin </span>
-      <span class="key">  PortDestine:</span><span class="numberr"> 15000</span><span class="coment"> #optional </span>
-      <span class="key">  outputType:</span><span class="string"> video</span><span class="coment"> # output media stream type (vide, audi, text) </span>
-      <span class="key">  formatType:</span><span class="coment"> #optional format tipe of midia stream</span>
-    <span class="key">  destine:</span>
-      <span class="key">  destineName:</span><span class="string"> vms1 2vms 1</span><span class="coment"> # Destination name</span>
-      <span class="key">  destineIp:</span><span class="coment"> # Configure for orchestater </span>
-      <span class="key">  destinePort:</span><span class="numberr"> 15000</span><span class="coment"> #information of VMS</span>
-      <span class="key">  inputType:</span><span class="string"> video</span><span class="coment"> # input media stream type </span>
-  - #virtualLink 2
-    <span class="key">  origin:</span>
-      <span class="key">  originName:</span><span class="string"> 2vms video ball</span><span class="coment"> #Name of origin connect</span>
-      <span class="key">  originType:</span><span class="string"> device</span><span class="coment"> #Type of origin </span>
-      <span class="key">  PortDestine:</span><span class="numberr"> 5000</span><span class="coment"> #optional </span>
-      <span class="key">  outputType:</span><span class="string"> video</span><span class="coment"> # output media stream type (vide, audi, text) </span>
-      <span class="key">  formatType:</span><span class="coment"> #optional format tipe of midia stream</span>
-    <span class="key">  destine:</span>
-      <span class="key">  destineName:</span><span class="string"> vms2 2vms 1</span><span class="coment"> # Destination name</span>
-      <span class="key">  destineIp:</span><span class="coment"> # Configure for orchestater </span>
-      <span class="key">  destinePort:</span><span class="numberr"> 5000</span><span class="coment"> #information of VMS</span>
-      <span class="key">  inputType:</span><span class="string"> video</span><span class="coment"> # input media stream type </span>
-  -   #virtualLink 3
-    <span class="key">  origin:</span>
-      <span class="key">  originName:</span><span class="string"> vms2 2vms 1</span><span class="coment"> #Name of origin connect</span>
-      <span class="key">  originType:</span><span class="string"> vms</span><span class="coment"> #Type of origin </span>
-      <span class="key">  PortDestine:</span><span class="numberr"> 15001</span><span class="coment"> #optional </span>
-      <span class="key">  outputType:</span><span class="string"> video</span><span class="coment"> # output media stream type (vide, audi, text) </span>
-      <span class="key">  formatType:</span><span class="coment"> #optional format tipe of midia stream</span>
-    <span class="key">  destine:</span>
-      <span class="key">  destineName:</span><span class="string"> vms1 2vms 1</span><span class="coment"> # Destination name</span>
-      <span class="key">  destineIp:</span><span class="coment"> # Configure for orchestater </span>
-      <span class="key">  destinePort:</span><span class="numberr"> 15001</span><span class="coment"> #information of VMS</span>
-      <span class="key">  inputType:</span><span class="string"> video</span><span class="coment"> # input media stream type </span>
-  - #virtualLink 4
-    <span class="key">  origin:</span>
-      <span class="key">  originName:</span><span class="string"> vms1 2vms 1</span><span class="coment"> #Name of origin connect</span>
-      <span class="key">  originType:</span><span class="string"> vms</span><span class="coment"> #Type of origin </span>
-      <span class="key">  PortDestine:</span><span class="numberr"> 20003</span><span class="coment"> #optional </span>
-      <span class="key">  outputType:</span><span class="string"> video</span><span class="coment"> # output media stream type (vide, audi, text) </span>
-      <span class="key">  formatType:</span><span class="coment"> #optional format tipe of midia stream</span>
-    <span class="key">  destine:</span>
-      <span class="key">  destineName:</span><span class="numberr"> 192.168.0.103</span><span class="coment"> # Destination name</span>
-      <span class="key">  destineIp:</span><span class="numberr"> 192.168.0.103</span><span span class="coment"> #IP of the final destination where the multimedia stream will be published</span>
-      <span class="key">  destinePort:</span><span class="numberr"> 20003</span><span class="coment"> #Developer Information </span>
-      <span class="key">  inputType:</span><span class="string"> video</span><span class="coment"> # input media stream type </span>
+  - <span class="coment">#virtualLink 1</span>
+    <span class="key">origin:</span>
+      <span class="key">originName:</span><span class="string"> 2vms video ball</span><span class="coment"> #Name of origin connect</span>
+      <span class="key">originType:</span><span class="string"> device</span><span class="coment"> #Type of origin </span>
+      <span class="key">PortDestine:</span><span class="numberr"> 15000</span><span class="coment"> #optional </span>
+      <span class="key">outputType:</span><span class="string"> video</span><span class="coment"> # output media stream type (vide, audi, text) </span>
+      <span class="key">formatType:</span><span class="coment"> #optional format tipe of midia stream</span>
+    <span class="key">destine:</span>
+      <span class="key">destineName:</span><span class="string"> vms1 2vms 1</span><span class="coment"> # Destination name</span>
+      <span class="key">destineIp:</span><span class="coment"> # Configure for orchestater </span>
+      <span class="key">destinePort:</span><span class="numberr"> 15000</span><span class="coment"> #information of VMS</span>
+      <span class="key">inputType:</span><span class="string"> video</span><span class="coment"> # input media stream type </span>
+  - <span class="coment">#virtualLink 2</span>
+    <span class="key">origin:</span>
+      <span class="key">originName:</span><span class="string"> 2vms video ball</span><span class="coment"> #Name of origin connect</span>
+      <span class="key">originType:</span><span class="string"> device</span><span class="coment"> #Type of origin </span>
+      <span class="key">PortDestine:</span><span class="numberr"> 5000</span><span class="coment"> #optional </span>
+      <span class="key">outputType:</span><span class="string"> video</span><span class="coment"> # output media stream type (vide, audi, text) </span>
+      <span class="key">formatType:</span><span class="coment"> #optional format tipe of midia stream</span>
+    <span class="key">destine:</span>
+      <span class="key">destineName:</span><span class="string"> vms2 2vms 1</span><span class="coment"> # Destination name</span>
+      <span class="key">destineIp:</span><span class="coment"> # Configure for orchestater </span>
+      <span class="key">destinePort:</span><span class="numberr"> 5000</span><span class="coment"> #information of VMS</span>
+      <span class="key">inputType:</span><span class="string"> video</span><span class="coment"> # input media stream type </span>
+  - <span class="coment">#virtualLink 3</span>
+    <span class="key">origin:</span>
+      <span class="key">originName:</span><span class="string"> vms2 2vms 1</span><span class="coment"> #Name of origin connect</span>
+      <span class="key">originType:</span><span class="string"> vms</span><span class="coment"> #Type of origin </span>
+      <span class="key">PortDestine:</span><span class="numberr"> 15001</span><span class="coment"> #optional </span>
+      <span class="key">outputType:</span><span class="string"> video</span><span class="coment"> # output media stream type (vide, audi, text) </span>
+      <span class="key">formatType:</span><span class="coment"> #optional format tipe of midia stream</span>
+    <span class="key">destine:</span>
+      <span class="key">destineName:</span><span class="string"> vms1 2vms 1</span><span class="coment"> # Destination name</span>
+      <span class="key">destineIp:</span><span class="coment"> # Configure for orchestater </span>
+      <span class="key">destinePort:</span><span class="numberr"> 15001</span><span class="coment"> #information of VMS</span>
+      <span class="key">inputType:</span><span class="string"> video</span><span class="coment"> # input media stream type </span>
+  - <span class="coment">#virtualLink 4</span>
+    <span class="key">origin:</span>
+      <span class="key">originName:</span><span class="string"> vms1 2vms 1</span><span class="coment"> #Name of origin connect</span>
+      <span class="key">originType:</span><span class="string"> vms</span><span class="coment"> #Type of origin </span>
+      <span class="key">PortDestine:</span><span class="numberr"> 20003</span><span class="coment"> #optional </span>
+      <span class="key">outputType:</span><span class="string"> video</span><span class="coment"> # output media stream type (vide, audi, text) </span>
+      <span class="key">formatType:</span><span class="coment"> #optional format tipe of midia stream</span>
+    <span class="key">destine:</span>
+      <span class="key">destineName:</span><span class="numberr"> 192.168.0.103</span><span class="coment"> # Destination name</span>
+      <span class="key">destineIp:</span><span class="numberr"> 192.168.0.103</span><span span class="coment"> #IP of the final destination where the multimedia stream will be published</span>
+      <span class="key">destinePort:</span><span class="numberr"> 20003</span><span class="coment"> #Developer Information </span>
+      <span class="key">inputType:</span><span class="string"> video</span><span class="coment"> # input media stream type </span>
 </pre>
             
           </div>
