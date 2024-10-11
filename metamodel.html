@@ -1,0 +1,1803 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>L-PRISM</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <link href="assets/css/style.css" rel="stylesheet">
+
+    <style>
+        #metamodel-menu {
+            position: fixed;
+            top: 100px;
+            left: 320px;
+            width: 250px;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            z-index: 999;
+            overflow-y: auto;
+            height: calc(100vh - 100px);
+        }
+
+        /* Ajusta el contenido principal para que no se solape con el menú lateral */
+        #main {
+            margin-left: 560px;
+            /* Añade un margen adecuado para que el contenido no se superponga */
+            padding: 20px;
+        }
+
+        #metamodel-menu .nav-link {
+            color: #007bff;
+            font-weight: 500;
+            padding: 8px 0;
+        }
+
+        #metamodel-menu .nav-link:hover {
+            color: #0056b3;
+        }
+
+        #metamodel-menu .nav-link.active {
+            font-weight: bold;
+        }
+
+        .parent-link {
+            font-weight: bold;
+            color: #007bff;
+            /* Color del texto del padre */
+        }
+
+        /* Estilo para los hijos (con sangría) */
+        .child-link {
+            margin-left: 20px;
+            /* Sangría para mostrar la jerarquía */
+            color: #0069d9;
+            /* Color de los enlaces hijos */
+        }
+
+        /* Estilo general del enlace en hover */
+        .nav-link:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ======= Mobile nav toggle button ======= -->
+    <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+    <!-- ======= Header ======= -->
+    <header id="header">
+        <div class="d-flex flex-column">
+            <div class="profile">
+                <img src="assets/img/logo-normal.jpg" alt="" class="img-fluid rounded-circle">
+                <h1 class="text-light"><a href="#">L-PRISM</a></h1>
+                <div class="social-links mt-3 text-center">
+                    <a href="https://github.com/fventuraq/alfa" class="github" target="_blank"><i
+                            class="bx bxl-github"></i></a>
+                </div>
+            </div>
+
+            <nav id="navbar" class="nav-menu navbar">
+                <ul>
+                    <li><a href="lprism.html#hero" class="nav-link scrollto"><i class="bx bx-home"></i>
+                            <span>Home</span></a></li>
+                    <li><a href="lprism.html#about" class="nav-link scrollto"><i class="bx bx-user"></i>
+                            <span>L-PRISM</span></a>
+                    </li>
+                    <li><a href="lprism.html#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i>
+                            <span>Resumo
+                                L-PRISM</span></a></li>
+                    <li><a href="lprism.html#exemplos-lprism" class="nav-link scrollto"><i
+                                class="bx bx-book-content"></i>
+                            <span>Exemplos L-PRISM</span></a></li>
+                    <li><a href="lprism.html#exemplos-vprism" class="nav-link scrollto"><i class="bx bx-server"></i>
+                            <span>Exemplos
+                                V-PRISM</span></a></li>
+                    <li><a href="metamodel.html" class="nav-link scrollto active"><i class="bx bx-server"></i>
+                            <span>Metamodelo
+                                L-PRISM</span></a></li>
+                    <li><a href="https://github.com/fventuraq/alfa" target="_blank" class="nav-link scrollto"><i
+                                class="bx bx-git-branch"></i> <span>ALFA 2.0</span></a></li>
+                    <li><a href="index.html" class="nav-link scrollto"><i class="bx bx-envelope"></i>
+                            <span>Apresentação</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header><!-- End Header -->
+
+    <main id="main">
+        <!-- ======= Resumo L-PRISM Section ======= -->
+        <section id="metamodel" class="metamodel section-bg">
+            <div class="container">
+                <div class="row">
+                    <!-- Menu en la sección marcada -->
+                    <div class="col-lg-3" id="metamodel-menu">
+                        <nav class="nav flex-column">
+                            <a class="nav-link parent-link" href="#dataTypes">Data Types</a>
+                            <a class="nav-link child-link" href="#l3AddressData">l3AddressData</a>
+                            <a class="nav-link child-link" href="#addressData">addressData</a>
+                            <a class="nav-link child-link" href="#connectivityType">connectivityType</a>
+                            <a class="nav-link child-link" href="#virtualMemory">virtualMemory</a>
+                            <a class="nav-link child-link" href="#virtualStorage">virtualStorage</a>
+                            <a class="nav-link child-link" href="#virtualGraphicsCard">virtualGraphicsCard</a>
+                            <a class="nav-link child-link" href="#configurableProperties">configurableProperties</a>
+                            <a class="nav-link child-link" href="#port">port</a>
+
+                            <a class="nav-link parent-link" href="#capabilitiesTypes">Capabilities Types</a>
+                            <a class="nav-link child-link" href="#metric">metric</a>
+                            <a class="nav-link child-link" href="#virtualCompute">virtualCompute</a>
+
+                            <a class="nav-link parent-link" href="#artifactTypes">Artifact Types</a>
+                            <a class="nav-link child-link" href="#swImage">swImage</a>
+                            <a class="nav-link child-link" href="#host">host</a>
+                            <a class="nav-link child-link" href="#device">device</a>
+
+                            <a class="nav-link parent-link" href="#relationshipTypes">Relationship Types</a>
+                            <a class="nav-link child-link" href="#source">source</a>
+                            <a class="nav-link child-link" href="#destination">destination</a>
+
+                            <a class="nav-link parent-link" href="#nodeTypes">Node Types</a>
+                            <a class="nav-link child-link" href="#vms">vms - multimedia VNF</a>
+                            <a class="nav-link child-link" href="#virtualLink">virtualLink</a>
+
+                            <a class="nav-link parent-link" href="#chainType">Chain Type</a>
+                            <a class="nav-link child-link" href="#chainModel">chainModel</a>
+                        </nav>
+                    </div>
+                    <!-- Contenido principal -->
+                    <div class="col-lg-9">
+                        <div class="section-title" id="dataTypes">
+                            <h2>Data Types</h2>
+                        </div>
+                        <div class="subsection" id="l3AddressData">
+                            <h3>lPrism.datatype.vms.l3AddressData</h3>
+                            <p>
+                                The data type <code>l3AddressData</code> is defined by TOSCA-NFV and ETSI-NFV; its
+                                function is to inform about the configuration of the IP addresses within a subnet, such
+                                as whether the IP addresses will be assigned manually or automatically by the
+                                orchestrator.
+                            </p>
+                            <p>
+                                The properties of <code>l3AddressData</code> are described in the following table:
+                            </p>
+
+                            <!-- Table for l3AddressData properties -->
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Required</th>
+                                        <th>Type</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>ipAddress-Assignment</td>
+                                        <td>Yes</td>
+                                        <td>Boolean</td>
+                                        <td>Specifies whether the IP address will be assigned manually by the user or
+                                            automatically by the orchestrator. The default value is True.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>floatingIpActivated</td>
+                                        <td>No</td>
+                                        <td>Boolean</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>ipAddressType</td>
+                                        <td>Yes</td>
+                                        <td>String</td>
+                                        <td>Specifies the type of address. Valid values: ipv4, ipv6</td>
+                                    </tr>
+                                    <tr>
+                                        <td>numberOfIp-Address</td>
+                                        <td>No</td>
+                                        <td>Integer</td>
+                                        <td>Minimum number of IP addresses to assign.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <!-- Block of code: Definition in YAML -->
+                            <h4>Definition</h4>
+                            <pre>
+                  <code class="language-yaml">
+          lPrism.datatypes.vms.l3AddressData:
+              properties: 
+                  ipAddressAssignment:
+                    type: Boolean
+                    required: true   
+                  floatingIpActivated:
+                    type: Boolean
+                    required: false
+                  ipAddressType:
+                    type: string
+                    required: false
+                    constraints:
+                      - valid_values: [ipv4, ipv6]
+                  numberOfIpAddress:
+                    type: Integer
+                    required: false      
+                  </code>
+                </pre>
+
+                            <!-- Example Block -->
+                            <h4>Example</h4>
+                            <pre>
+                  <code class="language-yaml">
+          l3AddressData:
+              ipAddressAssignment: true
+              floatingIpActivated: false
+              ipAddressType: ipv4
+              numberOfIpAddress: 1    
+                  </code>
+                </pre>
+                        </div>
+
+                        <!-- Subsection: lPrism.datatype.vms.addressData -->
+                        <div class="subsection" id="addressData">
+                            <h3>lPrism.datatype.vms.addressData</h3>
+                            <p>
+                                This complex data type is used by TOSCA-NFV and ETSI-NFV to provide information about
+                                the address assigned to the connection point. The properties are listed below:
+                            </p>
+
+                            <!-- Table for addressData properties -->
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Required</th>
+                                        <th>Type</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>addressType</td>
+                                        <td>Yes</td>
+                                        <td>String</td>
+                                        <td>Describes the address assigned to the connection point. The assignment
+                                            depends on the ipAddressAssignment attribute of l3AddressData.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>l3AddressData</td>
+                                        <td>No</td>
+                                        <td>lPrism.datatype.vms.l3AddressData</td>
+                                        <td>Provides information on the address assigned to the connection point.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <!-- Block of code: Definition in YAML -->
+                            <h4>Definition</h4>
+                            <pre>
+          <code class="language-yaml">
+  lPrism.datatypes.vms.addressData:
+      properties:
+          addressType:
+              type: String
+              required: true
+              constraints:
+              - valid_values: [mac_address, ip_address]
+          l3AddressData:
+              type: lPrism.datatypes.vms.L3AddressData
+              required: false       
+          </code>
+        </pre>
+
+                            <!-- Example Block -->
+                            <h4>Example</h4>
+                            <pre>
+          <code class="language-yaml">
+  addressData:
+      addressType: IP address
+      l3AddressData:
+          ipAddressAssignment: true
+          ipAddressType: IPv4      
+          </code>
+        </pre>
+                        </div>
+
+                        <!-- Subsection: lPrism.datatype.vms.connectivityType -->
+                        <div class="subsection" id="connectivityType">
+                            <h3>lPrism.datatype.vms.connectivityType</h3>
+                            <p>
+                                This complex data type describes the type of connection. Its structure is composed of
+                                the attributes described below:
+                            </p>
+
+                            <!-- Table for connectivityType properties -->
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Required</th>
+                                        <th>Type</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>layerProtocol</td>
+                                        <td>Yes</td>
+                                        <td>String</td>
+                                        <td>Identifies the connection protocol (ethernet, ipv4, ipv6, etc.)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>flowPattern</td>
+                                        <td>No</td>
+                                        <td>String</td>
+                                        <td>Identifies the connection mode (Line, Tree, Mesh)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <!-- Block of code: Definition in YAML -->
+                            <h4>Definition</h4>
+                            <pre>
+          <code class="language-yaml">
+  lPrism.datatypes.vms.connectivityType:
+      properties:
+          layerProtocol:
+            type: string
+            required: true
+            constraints: 
+            - valid_values: [ethernet, ipv4, ipv6]
+          flowPattern:
+            type: string
+            required: true
+            constraints:
+            - valid_values: [Line, Tree, Mesh]       
+          </code>
+        </pre>
+
+                            <!-- Example Block -->
+                            <h4>Example</h4>
+                            <pre>
+          <code class="language-yaml">
+  connectivityType:
+      layerProtocal: ipv4
+      flowPattern: Line    
+          </code>
+        </pre>
+                        </div>
+
+                        <!-- Subsection: lPrism.datatype.vms.virtualMemory -->
+                        <div class="subsection" id="virtualMemory">
+                            <h3>lPrism.datatype.vms.virtualMemory</h3>
+                            <p>
+                                This data type is used by TOSCA-NFV to describe the properties of memory used by the
+                                virtual machine. The properties are listed in the table below:
+                            </p>
+
+                            <!-- Table for virtualMemory properties -->
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Required</th>
+                                        <th>Type</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>virtualMemSize</td>
+                                        <td>Yes</td>
+                                        <td>Integer</td>
+                                        <td>Defines the amount of memory in MB assigned to the connection point (VMS).
+                                            By default, it has the same value as minVirtualMemSize.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>minVirtualMemSize</td>
+                                        <td>Yes</td>
+                                        <td>Integer</td>
+                                        <td>Defines the minimum amount of memory that must be assigned to the connection
+                                            point.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <!-- Block of code: Definition in YAML -->
+                            <h4>Definition</h4>
+                            <pre>
+          <code class="language-yaml">
+  lPrism.datatypes.vms.virtualMemory:
+      properties:
+          virtualMemSize:
+            type: scalar-unit.size # Number
+            required: true
+          minVirtualMemSize:
+            type: scalar-unit.size # Number
+            required: true    
+          </code>
+        </pre>
+
+                            <!-- Example Block -->
+                            <h4>Example</h4>
+                            <pre>
+          <code class="language-yaml">
+  virtualMemory:
+      virtualMemSize: 1024
+      minVirtualMemSize: 512     
+          </code>
+        </pre>
+                        </div>
+
+                        <!-- Subsection: lPrism.datatype.vms.virtualStorage -->
+                        <div class="subsection" id="virtualStorage">
+                            <h3>lPrism.datatype.vms.virtualStorage</h3>
+                            <p>
+                                TOSCA-NFV does not define a specific data type for storage, so we define
+                                <code>virtualStorage</code> for virtualized multimedia applications. The properties are
+                                listed below:
+                            </p>
+
+                            <!-- Table for virtualStorage properties -->
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Required</th>
+                                        <th>Type</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>virtualStorageSize</td>
+                                        <td>No</td>
+                                        <td>Integer</td>
+                                        <td>Defines the amount of storage in MB assigned to the connection point.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>minVirtualStorageSize</td>
+                                        <td>No</td>
+                                        <td>Integer</td>
+                                        <td>Defines the minimum amount of storage that must be assigned to the
+                                            connection point.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <!-- Block of code: Definition in YAML -->
+                            <h4>Definition</h4>
+                            <pre>
+          <code class="language-yaml">
+  lPrism.datatypes.vms.virtualStorage:
+      properties:        
+          virtualStorageSize:
+              type: scalar-unit.size # Number
+              required: false
+          minVirtualStorageSize:
+              type: scalar-unit.size # Number
+              required: false       
+          </code>
+        </pre>
+
+                            <!-- Example Block -->
+                            <h4>Example</h4>
+                            <pre>
+          <code class="language-yaml">
+  virtualStorage:
+      virtualStorageSize: 10000
+      minVirtualStorageSize: 5000  
+          </code>
+        </pre>
+                        </div>
+
+                        <!-- Subsection: lPrism.datatype.vms.virtualGraphicsCard -->
+                        <div class="subsection" id="virtualGraphicsCard">
+                            <h3>lPrism.datatype.vms.virtualGraphicsCard</h3>
+                            <p>
+                                This data type is not defined by TOSCA-NFV, but in L-PRISM it is used to specify
+                                properties of virtual graphics cards required by some multimedia applications.
+                            </p>
+
+                            <!-- Table for virtualGraphicsCard properties -->
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Required</th>
+                                        <th>Type</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>virtualGraphicsCardSize</td>
+                                        <td>No</td>
+                                        <td>Integer</td>
+                                        <td>Defines the amount of graphics memory (VRAM) assigned to the connection
+                                            point.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>minVirtualGraphicsCardSize</td>
+                                        <td>No</td>
+                                        <td>Integer</td>
+                                        <td>Defines the minimum amount of graphics memory that must be assigned to the
+                                            connection point.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <!-- Block of code: Definition in YAML -->
+                            <h4>Definition</h4>
+                            <pre>
+          <code class="language-yaml">
+  lPrism.datatypes.vms.virtualGraphicsCard:
+      properties:
+          virtualGraphicsCardSize:
+            type: scalar-unit.size # Number
+            required: false
+          minVirtualGraphicsCardSize:
+            type: scalar-unit.size # Number
+            required: false     
+          </code>
+        </pre>
+
+                            <!-- Example Block -->
+                            <h4>Example</h4>
+                            <pre>
+          <code class="language-yaml">
+  virtualGraphicsCard:
+      virtualGraphicsCardSize: 1024
+      minVirtualGraphicsCardSize: 512      
+          </code>
+        </pre>
+                        </div>
+
+                        <!-- Subsection: lPrism.datatype.vms.configurableProperties -->
+                        <div class="subsection" id="configurableProperties">
+                            <h3>lPrism.datatype.vms.configurableProperties</h3>
+                            <p>
+                                This data type allows describing configurable properties of a virtual device (VD) or
+                                VMS. The properties are listed below:
+                            </p>
+
+                            <!-- Table for configurableProperties -->
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Required</th>
+                                        <th>Type</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>additionalConfigurableProperties</td>
+                                        <td>Yes</td>
+                                        <td>String</td>
+                                        <td>Defines a variable that can be set. Commonly used in the software image
+                                            description.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <!-- Block of code: Definition in YAML -->
+                            <h4>Definition</h4>
+                            <pre>
+          <code class="language-yaml">
+  lPrism.datatypes.vms.configurableProperties:
+      properties:
+          additionalConfigurableProperties:
+            type: String
+            required: true       
+          </code>
+        </pre>
+
+                            <!-- Example Block -->
+                            <h4>Example</h4>
+                            <pre>
+          <code class="language-yaml">
+  configurableProperties:
+      additionalConfigurableProperties: "13"     
+          </code>
+        </pre>
+                        </div>
+
+                        <!-- Subsection: lPrism.datatype.vms.port -->
+                        <div class="subsection" id="port">
+                            <h3>lPrism.datatype.vms.port</h3>
+                            <p>
+                                This data type describes an input or output port enabled on a VMS for multimedia
+                                streams. The properties are listed below:
+                            </p>
+
+                            <!-- Table for port properties -->
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Required</th>
+                                        <th>Type</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>numPort</td>
+                                        <td>Yes</td>
+                                        <td>Integer</td>
+                                        <td>Port number enabled.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>typeStream</td>
+                                        <td>Yes</td>
+                                        <td>String</td>
+                                        <td>Multimedia stream type (video, audio, image, text).</td>
+                                    </tr>
+                                    <tr>
+                                        <td>formatStream</td>
+                                        <td>No</td>
+                                        <td>List</td>
+                                        <td>Multimedia stream formats used by the port.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>qualityStream</td>
+                                        <td>No</td>
+                                        <td>List</td>
+                                        <td>Quality of multimedia streams used by the port.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <!-- Block of code: Definition in YAML -->
+                            <h4>Definition</h4>
+                            <pre>
+          <code class="language-yaml">
+  lPrism.datatypes.vms.port:
+      properties:
+          numPort:
+              type: String
+              required: true
+          typeStream:
+              type: String
+              required: true
+              constraints:
+              - valid_values: [video, audio, image, text]        
+          formatStream:
+              type: list
+              entrySchema:
+                  type: String
+              required: false        
+          qualityStream:
+              type: list
+              entrySchema:
+                  type: String
+              required: false       
+          </code>
+        </pre>
+
+                            <!-- Example Block -->
+                            <h4>Example</h4>
+                            <pre>
+          <code class="language-yaml">
+  port:
+      numPort: 5000
+      typeStream: video       
+      formatStream: #not defined       
+      qualityStream: #not defined
+          </code>
+        </pre>
+                        </div>
+
+                        <div class="section-title" id="capabilitiesTypes">
+                            <h2>Capabilities Types</h2>
+                        </div>
+
+                        <!-- Subsection: lPrism.capabilities.vms.metric -->
+                        <div class="subsection" id="metric">
+                            <h3>lPrism.capabilities.vms.metric</h3>
+                            <p>
+                                Metric is a type of particular capability used to monitor a virtualized element. This
+                                capacity is significant when a VMS sends reports on its operation. The Metric capability
+                                was modified to fit the V-PRISM architecture, but it still works as defined by
+                                TOSCA-NFV.
+                            </p>
+
+                            <!-- Table for metric properties -->
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Required</th>
+                                        <th>Type</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>state</td>
+                                        <td>Yes</td>
+                                        <td>Boolean</td>
+                                        <td>--</td>
+                                    </tr>
+                                    <tr>
+                                        <td>listPorts</td>
+                                        <td>No</td>
+                                        <td>list</td>
+                                        <td>---</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <!-- Block of code: Definition in YAML -->
+                            <h4>Definition</h4>
+                            <pre>
+          <code class="language-yaml">
+  lPrism.capabilities.vms.metric:
+      properties:
+          state:
+            type: Boolean
+            required: true
+          listPorts:
+            type: list
+            entrySchema:
+              type: lPrism.datatypes.vms.port
+            required: false        
+          </code>
+        </pre>
+
+                            <!-- Example Block -->
+                            <h4>Example</h4>
+                            <pre>
+          <code class="language-yaml">
+  metric:
+    state: True
+    listPorts: 
+    -
+      numPort: 15001
+      typeStream: text
+          </code>
+        </pre>
+                        </div>
+
+                        <!-- Subsection: lPrism.capabilities.vms.virtualCompute -->
+                        <div class="subsection" id="virtualCompute">
+                            <h3>lPrism.capabilities.vms.virtualCompute</h3>
+                            <p>
+                                VirtualCompute encompasses the computational resources that can be assigned to a
+                                virtualized component. These resources can be configured in the VMS or preconfigured in
+                                the software image registry.
+                            </p>
+
+                            <!-- Table for virtualCompute properties -->
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Required</th>
+                                        <th>Type</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>VirtualMemory</td>
+                                        <td>Yes</td>
+                                        <td>lPrism.datatype.vms.virtualMemory</td>
+                                        <td>Describes the minimum amount of RAM required by software images and the
+                                            amount allocated to the virtualized component (VMS, VD).</td>
+                                    </tr>
+                                    <tr>
+                                        <td>VirtualCpu</td>
+                                        <td>Yes</td>
+                                        <td>lPrism.datatype.vms.virtualCpu</td>
+                                        <td>Describes the minimum number of CPUs required by software images and the
+                                            number allocated to the virtualized component (VMS, VD).</td>
+                                    </tr>
+                                    <tr>
+                                        <td>VirtualStorage</td>
+                                        <td>Yes</td>
+                                        <td>lPrism.datatype.vms.virtualStorage</td>
+                                        <td>Describes the minimum amount of storage required by software images and the
+                                            amount allocated to the virtualized component (VMS, VD).</td>
+                                    </tr>
+                                    <tr>
+                                        <td>VirtualGraphicsCard</td>
+                                        <td>No</td>
+                                        <td>lPrism.datatype.vms.virtualGraphicsCard</td>
+                                        <td>Describes the minimum amount of graphic memory required (if required) by the
+                                            software image and the amount allocated to the virtualized component.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <!-- Block of code: Definition in YAML -->
+                            <h4>Definition</h4>
+                            <pre>
+          <code class="language-yaml">
+  lPrism.capabilities.vms.virtualCompute:
+      properties:
+          VirtualMemory:
+              type: lPrism.datatype.vms.virtualMemory
+              required: true
+          VirtualCpu:
+              type: lPrism.datatype.vms.virtualCpu            
+              required: true
+          VirtualStorage:
+              type: lPrism.datatype.vms.virtualStorage           
+              required: true
+          VirtualGraphicsCard:
+              type: lPrism.datatype.vms.virtualGraphicsCard            
+              required: false       
+          </code>
+        </pre>
+
+                            <!-- Example Block -->
+                            <h4>Example</h4>
+                            <pre>
+          <code class="language-yaml">
+  virtualCompute:
+      VirtualMemory:
+          virtualMemSize: 1024
+          minVirtualMemSize: 512
+      VirtualCpu:
+          numVirtualCpu: 2
+          minNumVirtualCpu: 1
+      VirtualStorage:
+          virtualStorageSize: 10000
+          minVirtualStorageSize: 5000
+      VirtualGraphicsCard:
+          virtualGraphicsCardSize: 1024
+          minVirtualGraphicsCardSize: 512    
+          </code>
+        </pre>
+                        </div>
+
+                        <div class="section-title" id="artifactTypes">
+                            <h2>Artifact Types</h2>
+                        </div>
+
+                        <!-- Subsection: lPrism.artifacts.vms.swImage -->
+                        <div class="subsection" id="swImage">
+                            <h3>lPrism.artifacts.vms.swImage</h3>
+                            <p>
+                                It is an artifact defined by TOSCA-NFV that presents a data model describing a system
+                                image used to virtualize multimedia sensors VMS.
+                            </p>
+
+                            <!-- Table for swImage properties -->
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Required</th>
+                                        <th>Type</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>name</td>
+                                        <td>Yes</td>
+                                        <td>String</td>
+                                        <td>Name of image</td>
+                                    </tr>
+                                    <tr>
+                                        <td>description</td>
+                                        <td>No</td>
+                                        <td>String</td>
+                                        <td>Description of image</td>
+                                    </tr>
+                                    <tr>
+                                        <td>version</td>
+                                        <td>Yes</td>
+                                        <td>String</td>
+                                        <td>Version of image</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ImageSrc</td>
+                                        <td>Yes</td>
+                                        <td>String</td>
+                                        <td>A reference to where the image is registered</td>
+                                    </tr>
+                                    <tr>
+                                        <td>startupParameters</td>
+                                        <td>No</td>
+                                        <td>lPrism.data-type.vms.configurableProperties</td>
+                                        <td>Initialization variables required by the image</td>
+                                    </tr>
+                                    <tr>
+                                        <td>operatingSystem</td>
+                                        <td>Yes</td>
+                                        <td>String</td>
+                                        <td>Operating system used by the software image</td>
+                                    </tr>
+                                    <tr>
+                                        <td>virtualCompute</td>
+                                        <td>Yes</td>
+                                        <td>lPrism.capabilities.vms.virtualCompute</td>
+                                        <td>Minimum computational properties required</td>
+                                    </tr>
+                                    <tr>
+                                        <td>inputPorts</td>
+                                        <td>No</td>
+                                        <td>list</td>
+                                        <td>Information about ports receiving multimedia streams</td>
+                                    </tr>
+                                    <tr>
+                                        <td>outputPorts</td>
+                                        <td>No</td>
+                                        <td>list</td>
+                                        <td>Information about ports enabled to send information flows</td>
+                                    </tr>
+                                    <tr>
+                                        <td>connectivityType</td>
+                                        <td>Yes</td>
+                                        <td>lPrism.datatypes.vms.connectivityType</td>
+                                        <td>Describes the behavior of the software image's output connection</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <!-- Block of code: Definition in YAML -->
+                            <h4>Definition</h4>
+                            <pre>
+                              <code class="language-yaml">
+                      lPrism.artifacts.vms.SwImage:
+                          derived_from: lPrism.artifacts.Deployment.Image
+                          properties:
+                              name:
+                                  type: String
+                                  required: true
+                              description:
+                                  type: String
+                                  required: false
+                              version:
+                                  type: String
+                                  required: true
+                              operatingSystem:
+                                  type: String
+                                  required: false
+                              ImageSrc:
+                                  type: String
+                                  required: true        
+                              startupParameters:
+                                  type: map
+                                  entrySchema:
+                                      type: ..datatype.vms.configurableProperties
+                                  required: false        
+                              virtualCompute:
+                                  type: ..capabilities.vms.virtualCompute
+                                  required: true    
+                              inputPorts:
+                                  type: list
+                                  entrySchema:
+                                      type: ..datatypes.vms.port
+                                  required: false
+                              outputPorts:
+                                  type: list
+                                  entrySchema:	
+                                      type: ..datatypes.vms.port
+                                  required: false
+                              connectivityType:
+                                  type: ..datatypes.vms.connectivityType
+                                  required: true
+                              </code>
+                            </pre>
+
+                            <!-- Example Block -->
+                            <h4>Example</h4>
+                            <pre>
+                              <code class="language-yaml">
+                      lPrism.artifacts.vms.SwImage:    
+                          name: Example register software image
+                          description: Description of software image
+                          version: 1.0
+                          operatingSystem: linux
+                          ImageSrc: device/blackAndWhite
+                          startupParameters: Null       
+                          virtualCompute:
+                              VirtualMemory:
+                                  virtualMemSize: Null
+                                  minVirtualMemSize: 512
+                              VirtualCpu:
+                                  numVirtualCpu: Null
+                                  minNumVirtualCpu: 1
+                              VirtualStorage:
+                                  virtualStorageSize: Null
+                                  minVirtualStorageSize: 5000
+                              VirtualGraphicsCard: Null
+                          inputPorts:
+                          -
+                              numPort: 5000
+                              typeStream: video
+                          outputPorts: Null
+                          connectivityType:
+                              layerProtocol: ipv4
+                              flowPattern: Line
+                              </code>
+                            </pre>
+                        </div>
+
+                        <!-- Subsection: lPrism.artifacts.vms.host -->
+                        <div class="subsection" id="host">
+                            <h3>lPrism.artifacts.vms.host</h3>
+                            <p>
+                                A host can be characterized as an entity intended to provide computing resources to
+                                applications implemented within them.
+                            </p>
+
+                            <!-- Table for host properties -->
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Required</th>
+                                        <th>Type</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>name</td>
+                                        <td>Yes</td>
+                                        <td>String</td>
+                                        <td>Name of host</td>
+                                    </tr>
+                                    <tr>
+                                        <td>description</td>
+                                        <td>No</td>
+                                        <td>String</td>
+                                        <td>Description of host</td>
+                                    </tr>
+                                    <tr>
+                                        <td>addressIp</td>
+                                        <td>Yes</td>
+                                        <td>lPrism.data-type.vms.addressData</td>
+                                        <td>Host's IP address</td>
+                                    </tr>
+                                    <tr>
+                                        <td>isMaster</td>
+                                        <td>Yes</td>
+                                        <td>Bool</td>
+                                        <td>Defines if the node is master</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <!-- Block of code: Definition in YAML -->
+                            <h4>Definition</h4>
+                            <pre>
+                              <code class="language-yaml">
+                      lPrism.artifacts.vms.host:
+                          properties:
+                              name:
+                                  type: String
+                                  required: true
+                              description:
+                                  type: String
+                                  required: false
+                              addressIp:
+                                  type: lPrism.datatype.vms.addressData
+                                  required: true
+                              isMaster:
+                                  type: Bool
+                                  required: true        
+                              </code>
+                            </pre>
+
+                            <!-- Example Block -->
+                            <h4>Example</h4>
+                            <pre>
+                              <code class="language-yaml">
+                      lPrism.artifacts.vms.host:
+                          name: host master Midiacom
+                          description: This is host master in Midiacom
+                          addressIp:
+                              addressType: 192.168.0.101
+                          isMaster: true      
+                              </code>
+                            </pre>
+                        </div>
+
+                        <!-- Subsection: lPrism.artifacts.vms.device -->
+                        <div class="subsection" id="device">
+                            <h3>lPrism.artifacts.vms.device</h3>
+                            <p>
+                                To fully understand virtual devices, it's essential to recall one of the main reasons
+                                why they were proposed: to virtualize multimedia sensors.
+                            </p>
+
+                            <!-- Table for device properties -->
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Required</th>
+                                        <th>Type</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>name</td>
+                                        <td>Yes</td>
+                                        <td>String</td>
+                                        <td>Name of virtualized physical device</td>
+                                    </tr>
+                                    <tr>
+                                        <td>description</td>
+                                        <td>No</td>
+                                        <td>String</td>
+                                        <td>Description of virtualized sensor</td>
+                                    </tr>
+                                    <tr>
+                                        <td>host</td>
+                                        <td>Yes</td>
+                                        <td>lPrism.artifacts.vms.host</td>
+                                        <td>Host where the device will work</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <!-- Block of code: Definition in YAML -->
+                            <h4>Definition</h4>
+                            <pre>
+                              <code class="language-yaml">
+                      lPrism.artifacts.vms.device:
+                          properties:
+                              name:
+                                  type: String
+                                  required: true
+                              description:
+                                  type: String
+                                  required: false
+                              host:
+                                  address:
+                                  type: lPrism.artifacts.vms.host
+                                  required: true       
+                              </code>
+                            </pre>
+
+                            <!-- Example Block -->
+                            <h4>Example</h4>
+                            <pre>
+                              <code class="language-yaml">
+                      lPrism.artifacts.vms.device:
+                          name: Device color to bw
+                          description: Device transform video color
+                          host: 192.168.1.101
+                              </code>
+                            </pre>
+                        </div>
+
+                        <div class="section-title" id="relationshipTypes">
+                            <h2>Relationship Types</h2>
+                        </div>
+
+                        <!-- Subsection: lPrism.relationship.vms.source -->
+                        <div class="subsection" id="source">
+                            <h3>lPrism.relationship.vms.source</h3>
+                            <p>
+                                The structure of the <em>source</em> relationship type is detailed below.
+                            </p>
+
+                            <!-- Table for source properties -->
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Required</th>
+                                        <th>Type</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>sourceName</td>
+                                        <td>Yes</td>
+                                        <td>String</td>
+                                        <td>Describes from which component the media stream transmission starts. Must be
+                                            identical to deviceName or vmsName.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>sourceType</td>
+                                        <td>Yes</td>
+                                        <td>String</td>
+                                        <td>Describes the type of component initiating the multimedia stream transfer
+                                            (e.g., vms, device).</td>
+                                    </tr>
+                                    <tr>
+                                        <td>outputType</td>
+                                        <td>Yes</td>
+                                        <td>String</td>
+                                        <td>Describes the type of media stream being sent.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>formatType</td>
+                                        <td>No</td>
+                                        <td>String</td>
+                                        <td>Describes the format of the media stream, e.g., video resolution (360p vs
+                                            4K).</td>
+                                    </tr>
+                                    <tr>
+                                        <td>networkBandwidth</td>
+                                        <td>No</td>
+                                        <td>lPrism.datatype.vms.networkBandwidth</td>
+                                        <td>Defines the bandwidth assigned to this connection source for cross-host
+                                            connections.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <!-- Block of code: Definition in YAML -->
+                            <h4>Definition</h4>
+                            <pre>
+                              <code class="language-yaml">
+                      lPrism.relationship.vms.source:
+                          properties:
+                              sourceName:
+                                  type: String
+                                  required: true
+                              sourceType:
+                                  type: String
+                                  required: true
+                              outputType:
+                                  type: String
+                                  required: true
+                              formatType:
+                                  type: String
+                                  required: false
+                              networkBandwidth:
+                                  type: lPrism.datatype.vms.networkBandwidth
+                                  required: false        
+                              </code>
+                            </pre>
+
+                            <!-- Example Block -->
+                            <h4>Example</h4>
+                            <pre>
+                              <code class="language-yaml">
+                      lPrism.relationship.vms.source:
+                          sourceName: VD1
+                          sourceType: device
+                          outputType: video
+                          formatType: Null
+                          networkBandwidth: Null
+                              </code>
+                            </pre>
+                        </div>
+
+                        <!-- Subsection: lPrism.relationship.vms.destination -->
+                        <div class="subsection" id="destination">
+                            <h3>lPrism.relationship.vms.destination</h3>
+                            <p>
+                                The structure of the <em>destination</em> relationship type is detailed below.
+                            </p>
+
+                            <!-- Table for destination properties -->
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Required</th>
+                                        <th>Type</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>destinationName</td>
+                                        <td>Yes</td>
+                                        <td>String</td>
+                                        <td>Describes the component that will receive the media stream. Must match
+                                            vmsName in the service chain.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>destinationIp</td>
+                                        <td>No</td>
+                                        <td>lPrism.datatype.vms.addressData</td>
+                                        <td>Describes a network address (IP, MAC).</td>
+                                    </tr>
+                                    <tr>
+                                        <td>destinationPort</td>
+                                        <td>Yes</td>
+                                        <td>lPrism.datatype.vms.port</td>
+                                        <td>Describes the UDP port and the type of multimedia stream accepted by the
+                                            destination.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <!-- Block of code: Definition in YAML -->
+                            <h4>Definition</h4>
+                            <pre>
+                              <code class="language-yaml">
+                      lPrism.relationship.vms.destination:
+                          properties:
+                              destinationName:
+                                  type: String
+                                  required: true
+                              destinationIp:
+                                  type: String
+                                  required: false
+                              destinationPort:
+                                  type: lPrism.datatype.vms.port
+                                  required: true        
+                              </code>
+                            </pre>
+
+                            <!-- Example Block -->
+                            <h4>Example</h4>
+                            <pre>
+                              <code class="language-yaml">
+                      lPrism.relationship.vms.destination:
+                          destinationName: VMS1
+                          destinationIp: Null
+                          destinationPort:
+                              numPort: 5000
+                              typeStream: video
+                              </code>
+                            </pre>
+                        </div>
+
+                        <div class="section-title" id="nodeTypes">
+                            <h2>Node Types</h2>
+                        </div>
+
+                        <!-- Subsection: lPrism.nodes.vms.VDU.vms -->
+                        <div class="subsection" id="vms">
+                            <h3>lPrism.nodes.vms.VDU.vms</h3>
+                            <p>
+                                A <em>vms</em> within a multimedia service chain is used for processing multimedia
+                                streams and generating output results, which may be sent to other VMS(s) or end user
+                                applications.
+                            </p>
+
+                            <!-- Table for vms properties -->
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Required</th>
+                                        <th>Type</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>vmsName</td>
+                                        <td>Yes</td>
+                                        <td>String</td>
+                                        <td>The VMS name assigned by the developer of the multimedia service chain. It
+                                            acts as an ID in a virtualLink.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>vmsDescription</td>
+                                        <td>No</td>
+                                        <td>String</td>
+                                        <td>Description of the VMS within the multimedia service chain.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>configurableProperties</td>
+                                        <td>No</td>
+                                        <td>lPrism.data-type.vms.configurableProperties</td>
+                                        <td>Describes the configurable properties of the VMS component, if applicable.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>address</td>
+                                        <td>No</td>
+                                        <td>lPrism.data-type.vms.addressData</td>
+                                        <td>Address of the virtualized component (IP, MAC).</td>
+                                    </tr>
+                                    <tr>
+                                        <td>network</td>
+                                        <td>No</td>
+                                        <td>String</td>
+                                        <td>Describes the network the virtualized component belongs to.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ports</td>
+                                        <td>No</td>
+                                        <td>lPrism.data-type.vms.ports</td>
+                                        <td>Describes the ports enabled by the virtualized component.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>virtualCompute</td>
+                                        <td>No</td>
+                                        <td>lPrism.capabilities.vms.virtualCompute</td>
+                                        <td>Describes the resource requirements like storage, memory, CPU, and graphics
+                                            card.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>monitoringParameter</td>
+                                        <td>No</td>
+                                        <td>lPrism.capabilities.vms.metric</td>
+                                        <td>Describes monitoring parameters like CPU usage, memory consumption, etc.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>virtualBinding</td>
+                                        <td>No</td>
+                                        <td>lPrism.capabilities.vms.virtualBindable</td>
+                                        <td>Describes whether the virtualized component can function as a
+                                            subscription-based service.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>vmsType</td>
+                                        <td>Yes</td>
+                                        <td>lPrism.artifacts.vms.swImage</td>
+                                        <td>Describes the software image used by the VMS.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>host</td>
+                                        <td>Yes</td>
+                                        <td>lPrism.artifacts.vms.host</td>
+                                        <td>Describes the host where the container will be created.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <!-- Block of code: Definition in YAML -->
+                            <h4>Definition</h4>
+                            <pre>
+                              <code class="language-yaml">
+                      lPrism.nodes.vms.VDU.vms:
+                          properties:
+                              vmsName:
+                                  type: String
+                                  required: true
+                              vmsDescription:
+                                  type: String
+                                  required: false
+                              configurableProperties:
+                                  type: map
+                                  entrySchema:
+                                      type: ..datatype.vms.configurableProperties
+                                  required: false
+                          attributes:
+                              address:
+                                  type: lPrism.datatype.vms.addressData
+                                  required: false
+                              network:
+                                  type: String
+                                  required: false
+                              ports:
+                                  type: map
+                                  entrysSchema:
+                                      type: lPrism.datatype.vms.ports
+                                  required: false
+                          requirements:
+                              virtualCompute:
+                                  type: lPrism.capabilities.vms.virtualCompute
+                                  required: false
+                          capabilities:
+                              monitorignParameter:
+                                  type: lPrism.capabilities.vms.metric
+                                  required: false
+                              virtualBinding:
+                                  type: lPrism.capabilities.vms.virtualBindable
+                                  required: false
+                          artifacts:
+                              vmsType:
+                                  file:
+                                  type: Prism.artifacts.vms.swImage
+                                  required: true
+                              host:
+                                  address:
+                                  type: lPrism.artifacts.vms.host
+                                  required: true       
+                              </code>
+                            </pre>
+
+                            <!-- Example Block -->
+                            <h4>Example</h4>
+                            <pre>
+                              <code class="language-yaml">
+                      vms:
+                          vmsName: My VMS
+                          vmsDescription: Description my VMS
+                          configurableProperties: #not define
+                          address: #not define
+                          network: #not define
+                          ports: #not define
+                          virtualCompute:
+                              virtualMemory:
+                                  virtualMemSize: 1024
+                                  minVirtualMemSize: 512
+                              virtualCpu:
+                                  numVirtualCpu: 2
+                                  minNumVirtualCpu: 1
+                              virtualStorage:
+                                  virtualStorageSize: 10000
+                                  minVirtualStorageSize: 5000
+                              virtualGraphicsCard: Null
+                          monitorignParameter: #not define
+                          virtualBinding: #not define
+                          vmsType: 638e70b10a1fbd0026fccae8
+                          host: 192.168.0.117
+                              </code>
+                            </pre>
+                        </div>
+
+                        <!-- Subsection: lPrism.nodes.vms.virtualLink -->
+                        <div class="subsection" id="virtualLink">
+                            <h3>lPrism.nodes.vms.virtualLink</h3>
+                            <p>
+                                Interconnections between elements in a multimedia service chain are described by
+                                <em>virtualLink</em>, providing information on the source and destination points.
+                            </p>
+
+                            <!-- Table for virtualLink properties -->
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Required</th>
+                                        <th>Type</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>source</td>
+                                        <td>Yes</td>
+                                        <td>lPrism.relationship.vms.source</td>
+                                        <td>Describes the point from which the multimedia stream is sent.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>destination</td>
+                                        <td>Yes</td>
+                                        <td>lPrism.relationship.vms.destination</td>
+                                        <td>Describes the point where the multimedia stream is received.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <!-- Block of code: Definition in YAML -->
+                            <h4>Definition</h4>
+                            <pre>
+                              <code class="language-yaml">
+                      lPrism.nodes.vms.virtualLink:
+                          properties:
+                              source:
+                                  type: lPrism.relationship.vms.source
+                                  required: true
+                              destination:
+                                  type: lPrism.relationship.vms.destination
+                                  required: true
+                              </code>
+                            </pre>
+
+                            <!-- Example Block -->
+                            <h4>Example</h4>
+                            <pre>
+                              <code class="language-yaml">
+                      virtualLink:
+                          source:
+                              sourceName: VD1
+                              sourceType: device
+                              outputType: video
+                              formatType: #not define
+                              networkBandwidth: #not define
+                          destination:
+                              destinationName: VMS1
+                              destinationIP: #not define
+                              destinationPort:
+                                  numPort: 5000
+                                  typeStream: video
+                              </code>
+                            </pre>
+                        </div>
+
+                        <div class="section-title">
+                            <h2>Chain Type</h2>
+                        </div>
+
+                        <!-- Subsection: lPrism.chain.vms.chainModel -->
+                        <div class="subsection">
+                            <h3>lPrism.chain.vms.chainModel</h3>
+                            <p>
+                                L-PRISM represents a multimedia service chain as a language element named
+                                <em>chainModel</em>. A <em>chainModel</em> has three main components: Virtual Device
+                                (devices), Virtual Multimedia Sensors (vmss), and their connections (virtualLinks).
+                            </p>
+
+                            <!-- Table for chainModel properties -->
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Required</th>
+                                        <th>Type</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>chainName</td>
+                                        <td>Yes</td>
+                                        <td>String</td>
+                                        <td>The name of the multimedia service chain.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>chainDescription</td>
+                                        <td>No</td>
+                                        <td>String</td>
+                                        <td>The description of a multimedia service chain.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>devices</td>
+                                        <td>Yes</td>
+                                        <td>list</td>
+                                        <td>List of virtual devices that compose the multimedia service chain.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>vmss</td>
+                                        <td>Yes</td>
+                                        <td>list</td>
+                                        <td>List of VMSs that compose the multimedia service chain.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>virtualLinks</td>
+                                        <td>Yes</td>
+                                        <td>list</td>
+                                        <td>List of virtual connections between virtual devices and VMSs.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <!-- Block of code: Definition in YAML -->
+                            <h4>Definition</h4>
+                            <pre>
+                              <code class="language-yaml">
+                      lPrism.chain.vms.chainModel:
+                          properties:
+                              chainName:
+                                  type: String
+                                  required: true
+                              chainDescription:
+                                  type: String
+                                  required: false     
+                              devices:
+                                  type: list
+                                  entrySchema:
+                                      deviceName:
+                                          type: String
+                                          required: true
+                                      deviceId:
+                                          index:
+                                          type: lPrism.artifacts.vms.device
+                                          required: true
+                                  required: true
+                              vmss:
+                                  type: list
+                                  entrySchema:
+                                      type: lPrism.nodes.vms.VDU.vms
+                                  required: true
+                              virtualLinks:
+                                  type: list
+                                  entrySchema:
+                                      type: lPrism.nodes.vms.virtualLink
+                                  required: true
+                              </code>
+                            </pre>
+
+                            <!-- Example Block -->
+                            <h4>Example</h4>
+                            <pre>
+                              <code class="language-yaml">
+                      chainModel:
+                          chainName: VMS Chain
+                          chainDescription: Video Flux
+                          devices:
+                          -
+                            deviceName: example1 video ball
+                            deviceId: 638e70b10a1fbd0026fccaf4   
+                          vmss:
+                          -
+                            vmsName: vms1 example 1
+                            vmsDescription: My VMS description
+                            vmsType: 638e70b10a1fbd0026fccae4
+                            startupParameters: # Null
+                            host: 192.168.0.117 # IP
+                            virtualCompute:
+                              virtualMemory:
+                                  virtualMemorySize: 1024 
+                              virtualCPU:
+                                  numVirtualCpu: 2
+                              virtualStorage:
+                                  viertualStorageSize: 10000
+                          virtualLinks:
+                          - #virtualLink 1
+                              source:
+                                sourceName: example1 video ball
+                                sourceType: device
+                                outputType: video 
+                                formatType: # not define
+                                networkBandwidth: # not define
+                              destination:
+                                destinationName: vms1 example 1 
+                                destinationIp: #define for orchestrator
+                                destinationPort: 
+                                  numPort: 5000
+                                  typeStream: video
+                          - #virtualLink 2
+                              source:
+                                sourceName: vms1 example 1
+                                sourceType: vms
+                                outputType: video 
+                                formatType: # not define
+                                networkBandwidth: # not define
+                              destination:
+                                destinationName: 192.168.0.101 #My PC 
+                                destinationIp: 192.168.0.101 #My IP
+                                destinationPort:
+                                  numPort: 20002 # my port
+                                  typeStream: video
+                              </code>
+                            </pre>
+                        </div>                      
+                    </div>
+                </div>
+            </div>
+        </section><!-- End Resumo L-PRISM Section -->
+    </main>
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                &copy; Copyright <strong><span>L-PRISM</span></strong>
+            </div>
+            <div class="credits">
+                Designed by <a href="https://github.com/fventuraq" target="_blank">Franklin</a>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/typed.js/typed.min.js"></script>
+    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
